@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+@theme {
+    --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+@font-face {
+    font-family: 'RebellionSquad';
+    src: url('/fonts/RebellionSquad-ZpprZ.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html,
+body {
+    @apply bg-white dark:bg-gray-950;
+
+    font-family: "RebellionSquad", sans-serif;
+    letter-spacing: 2px;
+    font-size: 20px;
+    background: url("/images/bg-square.png");
+
+    @media (prefers-color-scheme: dark) {
+        color-scheme: dark;
+    }
+}
+
+.main-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+
+    h1 {
+        font-size: 50px;
+    }
+}
+
+.main-content {
+    border-radius: 20px;
+    border: 2px dashed white;
+    background-color: rgba(255, 255, 255, 0.3);
+    padding:20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.game-graph {
+    border-radius: 20px;
+    border: 2px dashed white;
+}
