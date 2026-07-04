@@ -3,8 +3,8 @@ import React from "react";
 import { useGameControls } from "~/providers/game-controls-provider";
 
 export default function GameControls() {
-    const { isPlayingBgMusic, bgMusicVolume, setBgMusicVolume } = useAudio();
-    const { toggleGamePaused, difficulty, setDifficulty } = useGameControls();
+    const { bgMusicVolume, setBgMusicVolume } = useAudio();
+    const { isGamePaused, toggleGamePaused, difficulty, setDifficulty } = useGameControls();
 
     const handleVolumeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const newVolume = parseInt(event.target.value) / 100;
@@ -16,7 +16,7 @@ export default function GameControls() {
         setDifficulty(newDifficulty);
     };
 
-    const playIcon = isPlayingBgMusic ? "images/paused-button.png" : "images/playing-button.png";
+    const playIcon = isGamePaused ? "images/playing-button.png" : "images/paused-button.png";
 
     const speakerIcon = () => {
         if (bgMusicVolume == 0) {
@@ -33,7 +33,7 @@ export default function GameControls() {
 
     const balloonsIcon = () => {
         return "images/red-balloon.svg";//TODO: actual icon
-    }
+    };
 
     // Adds an animation to the sliders thumb, making the thumb larger as the volume/difficulty increases
     const valueToSliderHeight = (value: number): string => {

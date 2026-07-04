@@ -79,7 +79,7 @@ export default function GameGraph() {
 
     const elapsedTime = useRef<number>(0);
 
-    const { playBgMusic, isPlayingBgMusic } = useAudio();
+    const { playBgMusic } = useAudio();
 
     useEffect(() => {
         playBgMusic();

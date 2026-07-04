@@ -16,7 +16,7 @@ export const GameControlsProvider = ({ children }: { children: React.ReactNode }
 
     const toggleGamePaused = () => {
         setGamePaused(!isGamePaused);
-    }
+    };
 
     const contextValues = {
         difficulty, setDifficulty,
@@ -25,7 +25,7 @@ export const GameControlsProvider = ({ children }: { children: React.ReactNode }
 
     return (
         <GameControlsContext.Provider value={ contextValues }>
-            {children}
+            { children }
         </GameControlsContext.Provider>
     );
 };

@@ -5,7 +5,6 @@ interface AudioContextType {
     playBgMusic: () => void;
     bgMusicVolume: number;
     setBgMusicVolume: (volume: number) => void;
-    isPlayingBgMusic: boolean;
 }
 
 const AudioContext = createContext<AudioContextType | null>(null);
@@ -15,7 +14,7 @@ export const AudioProvider = ({ children }: { children: React.ReactNode }) => {
     const bgAudioRef = useRef<HTMLAudioElement>(null);
     const [isPlayingBgMusic, setIsPlayingBgMusic] = useState(false);
     const [bgMusicVolume, setBgMusicVolume] = useState(0.5); // half volume by default
-    const {isGamePaused} = useGameControls();
+    const { isGamePaused } = useGameControls();
 
     useEffect(() => {
         if (bgAudioRef.current) {
@@ -51,7 +50,7 @@ export const AudioProvider = ({ children }: { children: React.ReactNode }) => {
     };
 
     const providerValues = {
-        playBgMusic, bgMusicVolume, setBgMusicVolume, isPlayingBgMusic,
+        playBgMusic, bgMusicVolume, setBgMusicVolume,
     };
 
     return (
