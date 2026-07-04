@@ -1,5 +1,6 @@
-import {useEffect, useRef, useState} from "react";
-import { useAudio } from "~/audio-provider/AudioProvider";
+import { useEffect, useRef, useState } from "react";
+import { useAudio } from "~/providers/audio-provider";
+import { useGameControls } from "~/providers/game-controls-provider";
 
 const BalloonImageUrls = [
     "/images/blue-balloon.svg",
@@ -24,7 +25,7 @@ const FPS = 60;
 const RedrawDelayMs = 1 / FPS * 1000;
 
 const SvgWidth = 1000;
-const SvgHeight = 1000;
+const SvgHeight = 800;
 
 const BalloonWidth = 50;
 const BalloonHeight = 100;
@@ -38,8 +39,8 @@ const CrossWindChangeProbability = 0.01;
 // in the new domain, which explain the fun math below.
 // At difficulty 1, it creates a balloon every 5 seconds. At difficulty 10, a balloon every 1 second.
 function difficultyToDelayMs(value: number): number {
-    const domain = {min: 1, max: 10};
-    const range = {min: 1000, max: 5000};
+    const domain = { min: 1, max: 10 };
+    const range = { min: 1000, max: 5000 };
 
     return range.min + (range.max - range.min) * (domain.max - value) / (domain.max - domain.min);
 }
@@ -56,34 +57,40 @@ function createNewBalloon(difficulty: number): Balloon {
         x: Math.random() * (SvgWidth - BalloonWidth),
         y: SvgHeight,
         xSpeed: 2 * (Math.random() - 0.5), // Side-wind speed between -1 and 1
-        ySpeed: 1 + (Math.random() * difficulty)
+        ySpeed: 1 + (Math.random() * difficulty / 2),
     };
 }
 
 // Returns a copy of the balloon with an updated position, which is a bit higher up and possibly swaying to the sides
-function updateBalloonPosition(b: Balloon,): Balloon {
+function updateBalloonPosition(b: Balloon): Balloon {
     const windChanged = Math.random() < CrossWindChangeProbability;
     return {
         ...b,
         x: clampBalloonX(b.x + b.xSpeed),
         y: b.y - b.ySpeed,
-        xSpeed: b.xSpeed * (windChanged ? -1 : 1)
+        xSpeed: b.xSpeed * (windChanged ? -1 : 1),
     };
 }
 
 export default function GameGraph() {
     // Difficulty will vary from 1 to 10, 1 being the easiest
-    const [difficulty, setDifficulty] = useState(1);
+    const { difficulty, isGamePaused } = useGameControls();
     const [balloons, setBalloons] = useState([] as Balloon[]);
 
     const elapsedTime = useRef<number>(0);
 
-    const audio = useAudio();
+    const { playBgMusic, isPlayingBgMusic } = useAudio();
 
-    audio?.playBgMusic(true);
+    useEffect(() => {
+        playBgMusic();
+    }, []);
 
     // Balloon Simulator
     useEffect(() => {
+        if (isGamePaused) {
+            return;
+        }
+
         // How often we'll create a balloon, the delay lowers as difficulty grows
         const creationDelayMs = difficultyToDelayMs(difficulty);
 
@@ -108,25 +115,25 @@ export default function GameGraph() {
         }, RedrawDelayMs);
 
         return () => clearInterval(interval);
-    }, [difficulty]);
+    }, [difficulty, isGamePaused]);
 
     const balloonImages = balloons.map((balloon, idx) => {
         return (
-            <image href={balloon.imgSrc}
-                   key={idx}
-                   width={BalloonWidth}
-                   height={BalloonHeight}
-                   x={balloon.x}
-                   y={balloon.y}/>);
+            <image href={ balloon.imgSrc }
+                   key={ idx }
+                   width={ BalloonWidth }
+                   height={ BalloonHeight }
+                   x={ balloon.x }
+                   y={ balloon.y }/>);
     });
 
     return (
         <svg className="game-graph"
              xmlns="http://www.w3.org/2000/svg"
-             width={SvgWidth}
-             height={SvgHeight}
-             viewBox={`0 0 {SvgViewWidth} {SvgViewHeight}`}>
-            {balloonImages}
+             width={ SvgWidth }
+             height={ SvgHeight }
+             viewBox={ `0 0 ${ SvgWidth } ${ SvgHeight }` }>
+            { balloonImages }
         </svg>
-    )
+    );
 }
