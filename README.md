@@ -4,7 +4,7 @@ Wind Festival (風祭り) - A Kanji game I created for practicing React
 
 
 > [!TIP]
-> You can go here to play this game from your browser. Still a work in progress.
+> You can go [here](https://dwilches.github.io/KazeMatsuri/) to play this game from your browser. Still a work in progress.
 
 
 This game is inspired by a computer game I played as a child which taught me how to type fast. 

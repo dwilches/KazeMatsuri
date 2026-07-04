@@ -59,7 +59,7 @@ export const AudioProvider = ({ children }: { children: React.ReactNode }) => {
             { children }
 
             <audio ref={ bgAudioRef }
-                   src="/audio/mochamusic-sugar-rush-405676.mp3"
+                   src="audio/mochamusic-sugar-rush-405676.mp3"
                    loop/>
         </AudioContext.Provider>
     );

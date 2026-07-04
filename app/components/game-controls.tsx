@@ -16,23 +16,23 @@ export default function GameControls() {
         setDifficulty(newDifficulty);
     };
 
-    const playIcon = isPlayingBgMusic ? "/images/paused-button.png" : "/images/playing-button.png";
+    const playIcon = isPlayingBgMusic ? "images/paused-button.png" : "images/playing-button.png";
 
     const speakerIcon = () => {
         if (bgMusicVolume == 0) {
-            return "/images/speaker-0.svg";
+            return "images/speaker-0.svg";
         }
         if (bgMusicVolume <= 0.3) {
-            return "/images/speaker-1.svg";
+            return "images/speaker-1.svg";
         }
         if (bgMusicVolume <= 0.7) {
-            return "/images/speaker-2.svg";
+            return "images/speaker-2.svg";
         }
-        return "/images/speaker-3.svg";
+        return "images/speaker-3.svg";
     };
 
     const balloonsIcon = () => {
-        return "/images/red-balloon.svg";//TODO: actual icon
+        return "images/red-balloon.svg";//TODO: actual icon
     }
 
     // Adds an animation to the sliders thumb, making the thumb larger as the volume/difficulty increases

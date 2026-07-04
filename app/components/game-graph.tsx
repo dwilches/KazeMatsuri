@@ -3,13 +3,13 @@ import { useAudio } from "~/providers/audio-provider";
 import { useGameControls } from "~/providers/game-controls-provider";
 
 const BalloonImageUrls = [
-    "/images/blue-balloon.svg",
-    "/images/green-balloon.svg",
-    "/images/pink-balloon.svg",
-    "/images/purple-balloon.svg",
-    "/images/red-balloon.svg",
-    "/images/turquesa-balloon.svg",
-    "/images/yellow-balloon.svg",
+    "images/blue-balloon.svg",
+    "images/green-balloon.svg",
+    "images/pink-balloon.svg",
+    "images/purple-balloon.svg",
+    "images/red-balloon.svg",
+    "images/turquesa-balloon.svg",
+    "images/yellow-balloon.svg",
 ];
 
 interface Balloon {

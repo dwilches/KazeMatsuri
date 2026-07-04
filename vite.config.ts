@@ -2,11 +2,11 @@ import { reactRouter } from "@react-router/dev/vite";
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "vite";
 
-const isGHPagesBuild = process.env.NODE_ENV === "production";
+const localBuild = process.env.NODE_ENV === "development";
 
 export default defineConfig({
   // Allows serving the SPA from GH Pages
-  base: isGHPagesBuild ? "/KazeMatsuri/" : "/",
+  base: localBuild ? "/" : "/KazeMatsuri/",
 
   plugins: [tailwindcss(), reactRouter()],
 
