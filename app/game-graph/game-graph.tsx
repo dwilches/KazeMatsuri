@@ -1,4 +1,5 @@
 import {useEffect, useRef, useState} from "react";
+import { useAudio } from "~/audio-provider/AudioProvider";
 
 const BalloonImageUrls = [
     "/images/blue-balloon.svg",
@@ -76,6 +77,10 @@ export default function GameGraph() {
     const [balloons, setBalloons] = useState([] as Balloon[]);
 
     const elapsedTime = useRef<number>(0);
+
+    const audio = useAudio();
+
+    audio?.playBgMusic(true);
 
     // Balloon Simulator
     useEffect(() => {
