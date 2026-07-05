@@ -68,7 +68,7 @@ function createNewBalloon(vocabulary: KanjiWithReadings[]): Balloon {
         y: SvgHeight,
         z: Math.floor(Math.random() * 3 + 1), // Corresponds to the index of one of the shadow filters
         xSpeed: 2 * (Math.random() - 0.5), // Side-wind speed between -1 and 1
-        ySpeed: 1 + Math.random(),
+        ySpeed: 1,
     };
 }
 
@@ -101,9 +101,16 @@ export default function BalloonGraph() {
 
     // Pop balloons that match the completed kana input by the user
     useEffect(() => {
-        console.log("graph received completeKanas:", completeKanas);
-        const newBalloons = balloons.filter(b => !b.readings.includes(completeKanas));
-        setBalloons(newBalloons);
+        setBalloons(oldBalloons => {
+            const newBalloons = oldBalloons.filter(b => !b.readings.includes(completeKanas));
+
+            // If there are no more balloons, create a new one so the user doesn't get bored
+            if (newBalloons.length === 0 && vocabulary.length > 0) {
+                return [createNewBalloon(vocabulary)];
+            }
+
+            return newBalloons;
+        })
     }, [completeKanas]);
 
     // Balloon Simulator
