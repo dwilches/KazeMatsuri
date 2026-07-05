@@ -99,8 +99,11 @@ export default function BalloonGraph() {
         playBgMusic();
     }, []);
 
+    // Pop balloons that match the completed kana input by the user
     useEffect(() => {
         console.log("graph received completeKanas:", completeKanas);
+        const newBalloons = balloons.filter(b => !b.readings.includes(completeKanas));
+        setBalloons(newBalloons);
     }, [completeKanas]);
 
     // Balloon Simulator

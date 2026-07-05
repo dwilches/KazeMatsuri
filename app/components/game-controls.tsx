@@ -63,12 +63,11 @@ export default function GameControls() {
                        onChange={ handleVolumeChange }/>
             </div>
 
-            <button onClick={ toggleGamePaused }>
-                <img src={ playIcon }
-                     width={ 48 } height={ 48 }
-                     className={ "play-pause-button" }
-                     alt=""/>
-            </button>
+            <img src={ playIcon }
+                 width={ 48 } height={ 48 }
+                 className={ "play-pause-button" }
+                 onClick={ toggleGamePaused }
+                 alt=""/>
 
             <div className={ "slider-container" }>
                 <img id="difficulty-icon"
