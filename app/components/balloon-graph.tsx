@@ -1,7 +1,8 @@
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useAudio } from "~/providers/audio-provider";
 import { useGameControls } from "~/providers/game-controls-provider";
 import { useKanaInput } from "~/providers/kana-input-provider/kana-input-provider";
+import { SvgShadowFilter } from "~/components/svg-shadow-filter";
 
 const BalloonImageUrls = [
     "images/blue-balloon.svg",
@@ -15,8 +16,10 @@ const BalloonImageUrls = [
 
 interface Balloon {
     imgSrc: string;
+    text: string;
     x: number; // position calculated on each frame
     y: number; // position calculated on each frame
+    z: number; // sense of depth given by shadow distance
     ySpeed: number;
     xSpeed: number; // Cross-wind speed
 }
@@ -55,8 +58,10 @@ function createNewBalloon(): Balloon {
     const randomImgIdx = Math.floor(Math.random() * BalloonImageUrls.length);
     return {
         imgSrc: BalloonImageUrls[randomImgIdx],
+        text: Math.random() > 0.5 ? "こんにちは" : "ち",
         x: Math.random() * (SvgWidth - BalloonWidth),
         y: SvgHeight,
+        z: Math.floor(Math.random() * 3 + 1), // Corresponds to the index of one of the shadow filters
         xSpeed: 2 * (Math.random() - 0.5), // Side-wind speed between -1 and 1
         ySpeed: 1 + Math.random(),
     };
@@ -89,7 +94,7 @@ export default function BalloonGraph() {
     }, []);
 
     useEffect(() => {
-        console.log("graph received completeKanas:", completeKanas)
+        console.log("graph received completeKanas:", completeKanas);
     }, [completeKanas]);
 
     // Balloon Simulator
@@ -118,7 +123,10 @@ export default function BalloonGraph() {
             setBalloons(prevValue =>
                 prevValue.map(b => updateBalloonPosition(b))
                     // Remove balloons that have floated away
-                    .filter(b => b.y + BalloonHeight > 0));
+                    .filter(b => b.y + BalloonHeight > 0)
+                    // Sort according to the distance from the wall (i.e. shadow depth)
+                    .sort((a, b) => a.z - b.z),
+            );
         }, RedrawDelayMs);
 
         return () => clearInterval(interval);
@@ -126,20 +134,36 @@ export default function BalloonGraph() {
 
     const balloonImages = balloons.map((balloon, idx) => {
         return (
-            <image href={ balloon.imgSrc }
-                   key={ idx }
-                   width={ BalloonWidth }
-                   height={ BalloonHeight }
-                   x={ balloon.x }
-                   y={ balloon.y }/>);
+            <React.Fragment key={ idx }>
+                <image href={ balloon.imgSrc }
+                       width={ BalloonWidth }
+                       height={ BalloonHeight }
+                       x={ balloon.x }
+                       y={ balloon.y }
+                       filter={ `url(#shadow-${ balloon.z })` }/>
+                <text x={ balloon.x + BalloonWidth / 2 }
+                      y={ balloon.y }
+                      dy={ -10 }
+                      textAnchor={ "middle" }
+                      filter={ `url(#shadow-${ balloon.z })` }>
+                    { balloon.text }
+                </text>
+            </React.Fragment>
+        );
     });
 
     return (
-        <svg className="game-graph"
+        <svg className="balloons-graph"
              xmlns="http://www.w3.org/2000/svg"
              width={ SvgWidth }
              height={ SvgHeight }
              viewBox={ `0 0 ${ SvgWidth } ${ SvgHeight }` }>
+            <defs>
+                <SvgShadowFilter filterName={ "shadow-1" } shadowDepth={ 5 }/>
+                <SvgShadowFilter filterName={ "shadow-2" } shadowDepth={ 7 }/>
+                <SvgShadowFilter filterName={ "shadow-3" } shadowDepth={ 10 }/>
+            </defs>
+
             { balloonImages }
         </svg>
     );

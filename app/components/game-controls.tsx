@@ -32,7 +32,13 @@ export default function GameControls() {
     };
 
     const balloonsIcon = () => {
-        return "images/red-balloon.svg";//TODO: actual icon
+        if (difficulty < 3) {
+            return "images/difficulty-1.svg";
+        }
+        if (difficulty <= 6) {
+            return "images/difficulty-2.svg";
+        }
+        return "images/difficulty-3.svg";
     };
 
     // Adds an animation to the sliders thumb, making the thumb larger as the volume/difficulty increases
@@ -48,7 +54,7 @@ export default function GameControls() {
             <div className={ "slider-container" }>
                 <img id="volume-icon"
                      src={ speakerIcon() }
-                     alt={ "Volume" }/>
+                     alt=""/>
                 <input type="range"
                        min={ 0 } max={ 100 } value={ bgMusicVolume * 100 }
                        style={ {
@@ -61,14 +67,14 @@ export default function GameControls() {
                 <img src={ playIcon }
                      width={ 48 } height={ 48 }
                      className={ "play-pause-button" }
-                     alt={ "Pause Game" }/>
+                     alt=""/>
             </button>
 
             <div className={ "slider-container" }>
                 <img id="difficulty-icon"
                      src={ balloonsIcon() }
                      width={ 48 } height={ 48 }
-                     alt={ "Difficulty" }/>
+                     alt=""/>
                 <input type="range"
                        min={ 1 } max={ 10 } value={ difficulty }
                        style={ {

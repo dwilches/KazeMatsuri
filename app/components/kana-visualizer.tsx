@@ -5,7 +5,7 @@ export const KanaVisualizer = () => {
     const { partialKanas, unconsumedLetters } = useKanaInput();
 
     return (
-        <div>
+        <div className="kana-visualizer">
             <span style={ { color: "#58ecb3" } }>{ partialKanas }</span>
             <span style={ { color: "#ff6097" } }>{ unconsumedLetters }</span>
         </div>

@@ -53,6 +53,10 @@ body {
     background-color: rgba(255, 255, 255, 0.3);
 }
 
+.kana-visualizer {
+    height: 2rem;
+}
+
 .game-footer {
     display: flex;
     width: 1040px;
@@ -60,9 +64,19 @@ body {
     justify-content: end;
 }
 
-.game-graph {
+.balloons-graph {
     border-radius: 20px;
     border: 2px dashed white;
+
+    text {
+        fill: black;
+        text-anchor: middle;
+        paint-order: stroke;
+        stroke-width: 3px;
+        stroke-linejoin: round;
+        stroke: white;
+        font-weight: bold;
+    }
 }
 
 @utility custom-slider-track {

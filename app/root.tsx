@@ -23,6 +23,15 @@ export function Layout({ children }: { children: React.ReactNode }) {
     );
 }
 
+// Text shown while the game is loading
+export function HydrateFallback() {
+    return (
+        <div className={ "flex  justify-center min-h-screen items-center" }>
+            <p>Loading Game...</p>
+        </div>
+    );
+}
+
 export default function App() {
     return <Outlet/>;
 }
