@@ -34,6 +34,9 @@ export default function Home() {
                     </AudioProvider>
                 </GameControlsProvider>
             </div>
+            <div className="game-footer">
+                Credits
+            </div>
         </div>
     );
 }

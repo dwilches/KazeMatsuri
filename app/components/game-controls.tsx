@@ -46,8 +46,8 @@ export default function GameControls() {
     return (
         <div className={ "game-controls" }>
             <div className={ "slider-container" }>
-                <img src={ speakerIcon() }
-                     width={ 48 } height={ 48 }
+                <img id="volume-icon"
+                     src={ speakerIcon() }
                      alt={ "Volume" }/>
                 <input type="range"
                        min={ 0 } max={ 100 } value={ bgMusicVolume * 100 }
@@ -65,7 +65,8 @@ export default function GameControls() {
             </button>
 
             <div className={ "slider-container" }>
-                <img src={ balloonsIcon() }
+                <img id="difficulty-icon"
+                     src={ balloonsIcon() }
                      width={ 48 } height={ 48 }
                      alt={ "Difficulty" }/>
                 <input type="range"

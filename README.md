@@ -25,3 +25,10 @@ opportunity.
 
 
 <img src="docs/screenshot.png" alt="Screenshot">
+
+
+# TODO
+
+- Responsive
+- Intro with interaction before playing music
+- Fixing for Chromium family

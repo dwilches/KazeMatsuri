@@ -57,7 +57,7 @@ function createNewBalloon(difficulty: number): Balloon {
         x: Math.random() * (SvgWidth - BalloonWidth),
         y: SvgHeight,
         xSpeed: 2 * (Math.random() - 0.5), // Side-wind speed between -1 and 1
-        ySpeed: 1 + (Math.random() * difficulty / 2),
+        ySpeed: 1 + Math.random(),
     };
 }
 

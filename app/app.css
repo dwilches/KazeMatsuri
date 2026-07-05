@@ -41,15 +41,22 @@ body {
 }
 
 .main-content {
-    border-radius: 20px;
-    border: 2px dashed white;
-    background-color: rgba(255, 255, 255, 0.3);
-    padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    padding: 20px;
     gap: 10px;
+    border-radius: 20px;
+    border: 2px dashed white;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.game-footer {
+    display: flex;
+    width: 1040px;
+    margin-top: 10px;
 }
 
 .game-graph {
@@ -93,7 +100,13 @@ body {
 
     .slider-container {
         display: flex;
+        align-items: center;
         gap: 5px;
+    }
+
+    img#volume-icon, img#difficulty-icon {
+        height: 40px;
+        width: 40px;
     }
 
     input[type="range"] {
