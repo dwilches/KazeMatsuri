@@ -10,8 +10,8 @@ const AllKanas: Record<string, string | KanaGroup> = {
     g: { ga: "が", gi: "ぎ", gu: "ぐ", ge: "げ", go: "ご", gya: "ぎゃ", gyu: "ぎゅ", gyo: "ぎょ" },
     s: { sa: "さ", si: "し", shi: "し", su: "す", se: "せ", so: "そ", sha: "しゃ", shu: "しゅ", sho: "しょ" },
     z: { za: "ざ", zi: "じ", zu: "ず", ze: "ぜ", zo: "ぞ" },
-    j: { ja: "じゃ", ju: "じゅ", jo: "じょ" },
-    t: { ta: "た", ti: "ち", tu: "つ", tsu: "つ", te: "て", to: "と", t: "っ" },
+    j: { ja: "じゃ", ji: "じ", ju: "じゅ", jo: "じょ" },
+    t: { ta: "た", ti: "ち", tu: "つ", tsu: "つ", te: "て", to: "と" },
     c: { chi: "ち", cha: "ちゃ", chu: "ちゅ", cho: "ちょ" },
     d: { da: "だ", di: "ぢ", du: "づ", de: "で", do: "ど" },
     n: { na: "な", ni: "に", nu: "ぬ", ne: "ね", no: "の", nya: "にゃ", nyu: "にゅ", nyo: "にょ", nn: "ん", n: "ん" },
@@ -66,15 +66,25 @@ export const translateInputToKanas = (input: string): KanaTranslation => {
     };
 };
 
+// Which letters can be doubled for sokuon (small tsu)
+// Japanese words: kstcp
+// Loanwords: bdjghf
+const SokuonConsonants = "kstcpbdjghf";
+
 const getLeadingKanas = (input: string, kanaGroup: KanaGroup): KanaTranslation => {
+    // If the letters start with a double sound, it is a sokuon
+    const sokuon = input.length >= 2 && input[0] == input[1] && SokuonConsonants.includes(input[0]);
+    const remainingInput = sokuon ? input.slice(1) : input;
+
     for (const kana of Object.keys(kanaGroup)) {
-        if (input.startsWith(kana)) {
+        if (remainingInput.startsWith(kana)) {
             return {
-                kanas: kanaGroup[kana],
-                unconsumed: input.slice(kana.length),
+                kanas: (sokuon ? "っ" : "") + kanaGroup[kana],
+                unconsumed: remainingInput.slice(kana.length),
             };
         }
     }
+
     return {
         kanas: "",
         unconsumed: input,

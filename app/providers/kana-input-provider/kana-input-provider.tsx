@@ -31,6 +31,9 @@ export const KanaInputProvider = ({ children }: { children: React.ReactNode }) =
                     keystrokesMemory = "";
                     return;
                 }
+            } else if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) {
+                // Ignore keystrokes with modified keys like Ctrl+C
+                return;
             } else {
                 const lowerKey = event.key.toLowerCase();
                 if (lowerKey.length == 1 && lowerKey >= "a" && lowerKey <= "z") {
