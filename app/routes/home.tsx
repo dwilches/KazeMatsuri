@@ -6,6 +6,7 @@ import GameControls from "~/components/game-controls";
 import { GameControlsProvider } from "~/providers/game-controls-provider";
 import { KanaInputProvider } from "~/providers/kana-input-provider/kana-input-provider";
 import { KanaVisualizer } from "~/components/kana-visualizer";
+import { VocabularyProvider } from "~/providers/vocabulary-provider/vocabulary-provider";
 
 export function meta({}: Route.MetaArgs) {
     return [
@@ -29,15 +30,17 @@ export default function Home() {
                 </h1>
             </div>
             <div className="main-content">
-                <KanaInputProvider>
-                    <GameControlsProvider>
-                        <AudioProvider>
-                            <BalloonGraph/>
-                            <KanaVisualizer/>
-                            <GameControls/>
-                        </AudioProvider>
-                    </GameControlsProvider>
-                </KanaInputProvider>
+                <VocabularyProvider>
+                    <KanaInputProvider>
+                        <GameControlsProvider>
+                            <AudioProvider>
+                                <BalloonGraph/>
+                                <KanaVisualizer/>
+                                <GameControls/>
+                            </AudioProvider>
+                        </GameControlsProvider>
+                    </KanaInputProvider>
+                </VocabularyProvider>
             </div>
             <div className="game-footer">
                 Credits

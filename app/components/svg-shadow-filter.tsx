@@ -9,7 +9,7 @@ export const SvgShadowFilter = ({ filterName, shadowDepth }: FilterProps) => {
             { /* Shadow */ }
             <feGaussianBlur in="SourceAlpha" stdDeviation="1"/>
             <feOffset dx={ shadowDepth } dy={ shadowDepth } result="offsetBlur"/>
-            <feFlood flood-color="#000000" flood-opacity="0.2"/>
+            <feFlood floodColor="#000000" floodOpacity="0.2"/>
             <feComposite in2="offsetBlur" operator="in" result="dropShadow"/>
 
             { /* Put shadow under original image */ }

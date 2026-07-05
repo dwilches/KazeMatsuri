@@ -16,6 +16,7 @@ const AllKanas: Record<string, string | KanaGroup> = {
     d: { da: "だ", di: "ぢ", du: "づ", de: "で", do: "ど" },
     n: { na: "な", ni: "に", nu: "ぬ", ne: "ね", no: "の", nya: "にゃ", nyu: "にゅ", nyo: "にょ", nn: "ん", n: "ん" },
     h: { ha: "は", hi: "ひ", hu: "ふ", he: "へ", ho: "ほ", nya: "ひゃ", nyu: "ひゅ", nyo: "ひょ" },
+    f: { fu: "ふ" },
     b: { ba: "ば", bi: "び", bu: "ぶ", be: "べ", bo: "ぼ", bya: "びゃ", byu: "びゅ", byo: "びょ" },
     p: { pa: "ぱ", pi: "ぴ", pu: "ぷ", pe: "ぺ", po: "ぽ", pya: "ぴゃ", pyu: "ぴゅ", pyo: "ぴょ" },
     m: { ma: "ま", mi: "み", mu: "む", me: "め", mo: "も", mya: "みゃ", myu: "みゅ", myo: "みょ" },

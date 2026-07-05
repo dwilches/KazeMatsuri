@@ -3,6 +3,8 @@ import { useAudio } from "~/providers/audio-provider";
 import { useGameControls } from "~/providers/game-controls-provider";
 import { useKanaInput } from "~/providers/kana-input-provider/kana-input-provider";
 import { SvgShadowFilter } from "~/components/svg-shadow-filter";
+import { useVocabulary } from "~/providers/vocabulary-provider/vocabulary-provider";
+import type { KanjiWithReadings } from "~/providers/vocabulary-provider/vocabulary";
 
 const BalloonImageUrls = [
     "images/blue-balloon.svg",
@@ -16,7 +18,8 @@ const BalloonImageUrls = [
 
 interface Balloon {
     imgSrc: string;
-    text: string;
+    kanji: string; // text visible in screen
+    readings: string[]; // text that the user needs to write
     x: number; // position calculated on each frame
     y: number; // position calculated on each frame
     z: number; // sense of depth given by shadow distance
@@ -54,11 +57,13 @@ function clampBalloonX(value: number): number {
     return Math.max(0, Math.min(value, SvgWidth - BalloonWidth));
 }
 
-function createNewBalloon(): Balloon {
+function createNewBalloon(vocabulary: KanjiWithReadings[]): Balloon {
     const randomImgIdx = Math.floor(Math.random() * BalloonImageUrls.length);
+    const randomVocabulary = vocabulary[Math.floor(Math.random() * vocabulary.length)];
     return {
         imgSrc: BalloonImageUrls[randomImgIdx],
-        text: Math.random() > 0.5 ? "こんにちは" : "ち",
+        kanji: randomVocabulary.kanji,
+        readings: randomVocabulary.readings,
         x: Math.random() * (SvgWidth - BalloonWidth),
         y: SvgHeight,
         z: Math.floor(Math.random() * 3 + 1), // Corresponds to the index of one of the shadow filters
@@ -82,6 +87,7 @@ export default function BalloonGraph() {
     // Difficulty will vary from 1 to 10, 1 being the easiest
     const { difficulty, isGamePaused } = useGameControls();
     const { completeKanas } = useKanaInput();
+    const { vocabulary } = useVocabulary();
 
     const [balloons, setBalloons] = useState([] as Balloon[]);
 
@@ -99,7 +105,7 @@ export default function BalloonGraph() {
 
     // Balloon Simulator
     useEffect(() => {
-        if (isGamePaused) {
+        if (isGamePaused || !vocabulary.length) {
             return;
         }
 
@@ -108,14 +114,14 @@ export default function BalloonGraph() {
 
         // Create a default balloon so the user doesn't need to wait too long
         if (balloons.length === 0) {
-            setBalloons([createNewBalloon()]);
+            setBalloons([createNewBalloon(vocabulary)]);
         }
 
         const interval = setInterval(() => {
             // Create new balloons at intervals according to difficulty.
             elapsedTime.current += RedrawDelayMs;
             if (elapsedTime.current > creationDelayMs) {
-                setBalloons(prevValue => ([...prevValue, createNewBalloon()]));
+                setBalloons(prevValue => ([...prevValue, createNewBalloon(vocabulary)]));
                 elapsedTime.current = 0;
             }
 
@@ -130,7 +136,7 @@ export default function BalloonGraph() {
         }, RedrawDelayMs);
 
         return () => clearInterval(interval);
-    }, [difficulty, isGamePaused]);
+    }, [difficulty, isGamePaused, vocabulary]);
 
     const balloonImages = balloons.map((balloon, idx) => {
         return (
@@ -146,7 +152,7 @@ export default function BalloonGraph() {
                       dy={ -10 }
                       textAnchor={ "middle" }
                       filter={ `url(#shadow-${ balloon.z })` }>
-                    { balloon.text }
+                    { balloon.kanji }
                 </text>
             </React.Fragment>
         );
