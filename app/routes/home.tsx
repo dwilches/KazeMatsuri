@@ -1,10 +1,11 @@
 import type { Route } from "./+types/home";
 import React from "react";
-import GameGraph from "~/components/game-graph";
+import BalloonGraph from "~/components/balloon-graph";
 import { AudioProvider } from "~/providers/audio-provider";
 import GameControls from "~/components/game-controls";
 import { GameControlsProvider } from "~/providers/game-controls-provider";
 import { KanaInputProvider } from "~/providers/kana-input-provider/kana-input-provider";
+import { KanaVisualizer } from "~/components/kana-visualizer";
 
 export function meta({}: Route.MetaArgs) {
     return [
@@ -31,7 +32,8 @@ export default function Home() {
                 <KanaInputProvider>
                     <GameControlsProvider>
                         <AudioProvider>
-                            <GameGraph/>
+                            <BalloonGraph/>
+                            <KanaVisualizer/>
                             <GameControls/>
                         </AudioProvider>
                     </GameControlsProvider>

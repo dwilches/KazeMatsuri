@@ -2,16 +2,18 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 import { translateInputToKanas } from "~/providers/kana-input-provider/kanas";
 
 interface KanaInputType {
-    partialKanas: string | null;
-    completeKanas: string | null;
+    partialKanas: string;
+    unconsumedLetters: string;
+    completeKanas: string;
 }
 
 const KanaInputContext = createContext<KanaInputType | null>(null);
 
 export const KanaInputProvider = ({ children }: { children: React.ReactNode }) => {
 
-    const [partialKanas, setPartialKana] = useState<string | null>("");
-    const [completeKanas, setCompleteKana] = useState<string | null>("");
+    const [partialKanas, setPartialKanas] = useState<string>("");
+    const [completeKanas, setCompleteKanas] = useState<string>("");
+    const [unconsumedLetters, setUnconsumedLetters] = useState<string>("");
 
     useEffect(() => {
 
@@ -19,10 +21,13 @@ export const KanaInputProvider = ({ children }: { children: React.ReactNode }) =
 
         const handleKeyDown = (event: KeyboardEvent) => {
             if (event.key == "Enter") {
-                const { kanas, isComplete } = translateInputToKanas(keystrokesMemory);
-                if (isComplete) {
-                    console.log("Next Complete Kanas", kanas);
-                    setCompleteKana(kanas);
+                // Do a final translation, and if all the input can be converted to kanas without leaving unconsumed
+                // letters, then report it as a complete group of kanas
+                const { kanas, unconsumed } = translateInputToKanas(keystrokesMemory);
+                if (kanas && !unconsumed) {
+                    setCompleteKanas(kanas);
+                    setPartialKanas("");
+                    setUnconsumedLetters("");
                     keystrokesMemory = "";
                     return;
                 }
@@ -34,11 +39,14 @@ export const KanaInputProvider = ({ children }: { children: React.ReactNode }) =
                     keystrokesMemory = "";
                 } else if (event.key == "Backspace") {
                     keystrokesMemory = keystrokesMemory.slice(0, -1);
+                } else {
+                    // Nothing changed since last time, no need to re-report the current kanas translation status
+                    return;
                 }
 
-                const  partial = translateInputToKanas(keystrokesMemory);
-                setPartialKana(partial.kanas);
-                console.log("Next Partial Kanas", partial, "(memory:", keystrokesMemory, ")");
+                const partial = translateInputToKanas(keystrokesMemory);
+                setPartialKanas(partial.kanas);
+                setUnconsumedLetters(partial.unconsumed);
             }
         };
 
@@ -51,6 +59,7 @@ export const KanaInputProvider = ({ children }: { children: React.ReactNode }) =
 
     const values: KanaInputType = {
         partialKanas,
+        unconsumedLetters,
         completeKanas,
     };
 
@@ -61,7 +70,7 @@ export const KanaInputProvider = ({ children }: { children: React.ReactNode }) =
     );
 };
 
-export const useUserInput = () => {
+export const useKanaInput = () => {
     const context = useContext(KanaInputContext);
     if (!context) {
         throw new Error("Error locating KanaInputContext. The component needs to be wrapped in " +

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useAudio } from "~/providers/audio-provider";
 import { useGameControls } from "~/providers/game-controls-provider";
+import { useKanaInput } from "~/providers/kana-input-provider/kana-input-provider";
 
 const BalloonImageUrls = [
     "images/blue-balloon.svg",
@@ -50,7 +51,7 @@ function clampBalloonX(value: number): number {
     return Math.max(0, Math.min(value, SvgWidth - BalloonWidth));
 }
 
-function createNewBalloon(difficulty: number): Balloon {
+function createNewBalloon(): Balloon {
     const randomImgIdx = Math.floor(Math.random() * BalloonImageUrls.length);
     return {
         imgSrc: BalloonImageUrls[randomImgIdx],
@@ -72,9 +73,11 @@ function updateBalloonPosition(b: Balloon): Balloon {
     };
 }
 
-export default function GameGraph() {
+export default function BalloonGraph() {
     // Difficulty will vary from 1 to 10, 1 being the easiest
     const { difficulty, isGamePaused } = useGameControls();
+    const { completeKanas } = useKanaInput();
+
     const [balloons, setBalloons] = useState([] as Balloon[]);
 
     const elapsedTime = useRef<number>(0);
@@ -85,25 +88,29 @@ export default function GameGraph() {
         playBgMusic();
     }, []);
 
+    useEffect(() => {
+        console.log("graph received completeKanas:", completeKanas)
+    }, [completeKanas]);
+
     // Balloon Simulator
     useEffect(() => {
         if (isGamePaused) {
             return;
         }
 
-        // How often we'll create a balloon, the delay lowers as difficulty grows
+        // How often to create a balloon, the delay lowers as difficulty grows
         const creationDelayMs = difficultyToDelayMs(difficulty);
 
         // Create a default balloon so the user doesn't need to wait too long
         if (balloons.length === 0) {
-            setBalloons([createNewBalloon(difficulty)]);
+            setBalloons([createNewBalloon()]);
         }
 
         const interval = setInterval(() => {
             // Create new balloons at intervals according to difficulty.
             elapsedTime.current += RedrawDelayMs;
             if (elapsedTime.current > creationDelayMs) {
-                setBalloons(prevValue => ([...prevValue, createNewBalloon(difficulty)]));
+                setBalloons(prevValue => ([...prevValue, createNewBalloon()]));
                 elapsedTime.current = 0;
             }
 

@@ -27,18 +27,17 @@ const AllKanas: Record<string, string | KanaGroup> = {
 export interface KanaTranslation {
     kanas: string;
     unconsumed: string;
-    isComplete: boolean;
 }
 
 export const translateInputToKanas = (input: string): KanaTranslation => {
     if (input.length === 0) {
-        return { kanas: "", unconsumed: "", isComplete: true };
+        return { kanas: "", unconsumed: "" };
     }
 
     const kanaGroup = AllKanas[input[0]];
     // If there are no kanas we can form from this string, then
     if (!kanaGroup) {
-        return { kanas: "", unconsumed: input, isComplete: input.length === 0 };
+        return { kanas: "", unconsumed: input };
     }
 
     // If the group only has one element, collect the kana and process the rest of the string
@@ -49,14 +48,13 @@ export const translateInputToKanas = (input: string): KanaTranslation => {
         return {
             kanas: carKanas + cdrKanas.kanas,
             unconsumed: cdrKanas.unconsumed,
-            isComplete: cdrKanas.isComplete,
         };
     }
 
     // If the group has multiple options, check if any option can be completed
     const { kanas, unconsumed } = getLeadingKanas(input, kanaGroup);
     if (!kanas) {
-        return { kanas: "", unconsumed: input, isComplete: false };
+        return { kanas: "", unconsumed: input };
     }
 
     const carKanas = kanas;
@@ -64,7 +62,6 @@ export const translateInputToKanas = (input: string): KanaTranslation => {
     return {
         kanas: carKanas + cdrKanas.kanas,
         unconsumed: cdrKanas.unconsumed,
-        isComplete: cdrKanas.isComplete,
     };
 };
 
@@ -74,13 +71,11 @@ const getLeadingKanas = (input: string, kanaGroup: KanaGroup): KanaTranslation =
             return {
                 kanas: kanaGroup[kana],
                 unconsumed: input.slice(kana.length),
-                isComplete: false, // actually, this field doesn't apply here
             };
         }
     }
     return {
         kanas: "",
         unconsumed: input,
-        isComplete: false, // doesn't apply either
-    }
+    };
 };
