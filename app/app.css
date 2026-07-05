@@ -57,6 +57,7 @@ body {
     display: flex;
     width: 1040px;
     margin-top: 10px;
+    justify-content: end;
 }
 
 .game-graph {

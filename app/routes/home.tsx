@@ -4,6 +4,7 @@ import GameGraph from "~/components/game-graph";
 import { AudioProvider } from "~/providers/audio-provider";
 import GameControls from "~/components/game-controls";
 import { GameControlsProvider } from "~/providers/game-controls-provider";
+import { KanaInputProvider } from "~/providers/kana-input-provider/kana-input-provider";
 
 export function meta({}: Route.MetaArgs) {
     return [
@@ -27,12 +28,14 @@ export default function Home() {
                 </h1>
             </div>
             <div className="main-content">
-                <GameControlsProvider>
-                    <AudioProvider>
-                        <GameGraph/>
-                        <GameControls/>
-                    </AudioProvider>
-                </GameControlsProvider>
+                <KanaInputProvider>
+                    <GameControlsProvider>
+                        <AudioProvider>
+                            <GameGraph/>
+                            <GameControls/>
+                        </AudioProvider>
+                    </GameControlsProvider>
+                </KanaInputProvider>
             </div>
             <div className="game-footer">
                 Credits
