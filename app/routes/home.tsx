@@ -7,7 +7,7 @@ import { GameControlsProvider } from "~/providers/game-controls-provider";
 import { KanaInputProvider } from "~/providers/kana-input-provider/kana-input-provider";
 import { KanaVisualizer } from "~/components/kana-visualizer";
 import { VocabularyProvider } from "~/providers/vocabulary-provider/vocabulary-provider";
-import { WelcomeDialog } from "~/dialogs/welcome";
+import { WelcomeDialog } from "~/dialogs/welcome-dialog";
 import { ModalDialog } from "~/dialogs/modal-dialog";
 
 export function meta({}: Route.MetaArgs) {
@@ -20,7 +20,8 @@ export function meta({}: Route.MetaArgs) {
 export default function Home() {
 
     const [isWelcomeModalOpen, setIsWelcomeModalOpen] = React.useState(true);
-    const closeCallbackRef = useRef<() => void>(() => {});
+    const closeCallbackRef = useRef<() => void>(() => {
+    });
 
     const onCloseWelcomeDialog = () => {
         setIsWelcomeModalOpen(false);
@@ -45,14 +46,22 @@ export default function Home() {
                     <KanaInputProvider>
                         <GameControlsProvider>
                             <AudioProvider>
-                                <BalloonGraph/>
-                                <KanaVisualizer/>
-                                <GameControls/>
+                                {
+                                    !isWelcomeModalOpen &&
+                                    <>
+                                        <BalloonGraph/>
+                                        <KanaVisualizer/>
+                                        <GameControls/>
+                                    </>
+                                }
 
-                                <ModalDialog isOpen={ isWelcomeModalOpen }
-                                             onClose={ onCloseWelcomeDialog }>
-                                    <WelcomeDialog closeCallbackRef={ closeCallbackRef }/>
-                                </ModalDialog>
+                                {
+                                    isWelcomeModalOpen &&
+                                    <ModalDialog isOpen={ isWelcomeModalOpen }
+                                                 onClose={ onCloseWelcomeDialog }>
+                                        <WelcomeDialog closeCallbackRef={ closeCallbackRef }/>
+                                    </ModalDialog>
+                                }
 
                             </AudioProvider>
                         </GameControlsProvider>

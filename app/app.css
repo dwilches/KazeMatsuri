@@ -30,10 +30,10 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 10px;
+    margin: 10px 0;
 
     h1 {
-        font-size: 50px;
+        @apply text-3xl md:text-5xl ;
         -webkit-text-stroke: 1px black;
         font-weight: bold;
         text-shadow: 1px 2px 10px rgba(0, 0, 0, 0.5), 2px 3px 25px rgba(0, 0, 0, 0.4);
@@ -70,9 +70,12 @@ body {
     font-size: 1.5rem;
 }
 
+.game-footer, .main-title, .main-content, .game-controls, dialog {
+    @apply w-[calc(100%-20px)]  md:w-11/12 lg:w-4/5 xl:w-3/4 2xl:w-1/2;
+}
+
 .game-footer {
     display: flex;
-    width: 1040px;
     margin-top: 10px;
     justify-content: end;
 }
@@ -114,6 +117,9 @@ body {
 }
 
 .game-controls {
+    @apply flex items-center justify-center;
+    @apply flex-col md:flex-row;
+
     border-radius: 20px;
     border: 2px dashed white;
     width: 100%;
@@ -123,13 +129,22 @@ body {
     gap: 50px;
 
     .play-pause-button {
+        @apply order-1 md:order-2;
         cursor: pointer;
     }
 
-    .slider-container {
+    .volume-container, .difficulty-container {
         display: flex;
         align-items: center;
         gap: 5px;
+    }
+
+    .volume-container {
+        @apply order-2 md:order-1;
+    }
+
+    .difficulty-container {
+        @apply order-3;
     }
 
     img#volume-icon, img#difficulty-icon {
@@ -143,6 +158,7 @@ body {
         -moz-appearance: none;
         appearance: none;
         cursor: pointer;
+        min-width: 50px;
 
         &:focus {
             /* Remove default slider style */
@@ -169,11 +185,11 @@ body {
 
 /* Modal dialogs */
 dialog {
+    @apply text-base lg:text-lg;
+
     margin: auto;
     padding: 24px;
-    font-size: 24px;
 
-    width: 50%;
     border: 2px solid white;
     border-radius: 10px;
     box-shadow: 0 0 10px #00000060;
@@ -214,13 +230,12 @@ dialog {
         padding: 5px 10px;
         border-radius: 10px;
         background-color: #cde0f7;
-        -webkit-text-stroke: 1px #00000080;
-        text-shadow: 1px 2px 10px #00000030;
+        -webkit-text-stroke: 1px white;
+        text-shadow: 1px 1px 5px #00000070;
         box-shadow: 2px 2px 2px #00000060;
 
         &:hover {
             background-color: #e1ebfc;
-            box-shadow: 2px 2px 2px #00000080;
         }
     }
 }

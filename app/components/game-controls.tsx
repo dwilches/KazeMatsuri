@@ -51,7 +51,7 @@ export default function GameControls() {
 
     return (
         <div className={ "game-controls" }>
-            <div className={ "slider-container" }>
+            <div className={ "volume-container" }>
                 <img id="volume-icon"
                      src={ speakerIcon() }
                      alt=""/>
@@ -69,7 +69,7 @@ export default function GameControls() {
                  onClick={ toggleGamePaused }
                  alt=""/>
 
-            <div className={ "slider-container" }>
+            <div className={ "difficulty-container" }>
                 <img id="difficulty-icon"
                      src={ balloonsIcon() }
                      width={ 48 } height={ 48 }

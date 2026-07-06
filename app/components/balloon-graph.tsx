@@ -171,8 +171,6 @@ export default function BalloonGraph() {
     return (
         <svg className="balloons-graph"
              xmlns="http://www.w3.org/2000/svg"
-             width={ SvgWidth }
-             height={ SvgHeight }
              viewBox={ `0 0 ${ SvgWidth } ${ SvgHeight }` }>
             <defs>
                 <SvgShadowFilter filterName={ "shadow-1" } shadowDepth={ 5 }/>
