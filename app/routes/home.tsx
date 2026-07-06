@@ -1,6 +1,5 @@
 import type { Route } from "./+types/home";
 import React, { useRef } from "react";
-import BalloonGraph from "~/components/balloon-graph";
 import { AudioProvider } from "~/providers/audio-provider";
 import GameControls from "~/components/game-controls";
 import { GameControlsProvider } from "~/providers/game-controls-provider";
@@ -9,6 +8,7 @@ import { KanaVisualizer } from "~/components/kana-visualizer";
 import { VocabularyProvider } from "~/providers/vocabulary-provider/vocabulary-provider";
 import { WelcomeDialog } from "~/dialogs/welcome-dialog";
 import { ModalDialog } from "~/dialogs/modal-dialog";
+import BalloonGraph from "~/components/balloons-graph/balloon-graph";
 
 export function meta({}: Route.MetaArgs) {
     return [
