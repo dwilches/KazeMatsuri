@@ -24,11 +24,17 @@ opportunity.
 > Still pending: popping sounds, improving SVGs and interaction elements.
 
 
-<img src="docs/screenshot.png" alt="Screenshot">
+## Intro Screen
+<img src="docs/screenshot-intro.png" alt="Screenshot Intro">
+
+## In Game UI
+<img src="docs/screenshot-game.png" alt="Screenshot Game">
 
 
 # TODO
 
-- Responsive
-- Intro with interaction before playing music
-- Fixing for Chromium family
+To be completed in the next week:
+
+- Credits
+- Balloon popping effects/sounds
+- Allow changing kanji levels

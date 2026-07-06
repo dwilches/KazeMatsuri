@@ -69,7 +69,7 @@ export default function Home() {
                 </VocabularyProvider>
             </div>
             <div className="game-footer">
-                Credits
+                {/*Credits*/}
             </div>
         </div>
     );
