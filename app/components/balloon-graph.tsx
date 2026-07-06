@@ -27,6 +27,14 @@ interface Balloon {
     xSpeed: number; // Cross-wind speed
 }
 
+interface Confetti {
+    x: number; // position calculated on each frame
+    y: number; // position calculated on each frame
+    z: number; // sense of depth given by shadow distance
+    size: number; // Grows over time
+    opacity: number; // in range [0, 1], turns transparent over time
+}
+
 // Calculate the frame delay in ms to animate at 60fps
 const FPS = 60;
 const RedrawDelayMs = 1 / FPS * 1000;
@@ -36,6 +44,10 @@ const SvgHeight = 800;
 
 const BalloonWidth = 50;
 const BalloonHeight = 100;
+
+const MinConfettiSize = 50;
+const ConfettiGrowSpeed = 5; // per frame
+const ConfettiOpacitySpeed = 0.05; // per frame
 
 // The balloons will sway to the sides as if wind was hitting them, and every so often they'll sway to the opposite
 // side. This probability tells how often that direction change happens.
@@ -90,6 +102,7 @@ export default function BalloonGraph() {
     const { vocabulary } = useVocabulary();
 
     const [balloons, setBalloons] = useState([] as Balloon[]);
+    const [confetti, setConfetti] = useState([] as Confetti[]);
 
     const elapsedTime = useRef<number>(0);
 
@@ -103,6 +116,21 @@ export default function BalloonGraph() {
     useEffect(() => {
         setBalloons(oldBalloons => {
             const newBalloons = oldBalloons.filter(b => !b.readings.includes(completeKanas));
+            if (newBalloons.length !== oldBalloons.length) {
+                const newBalloonsSet = new Set(newBalloons);
+                const poppedBalloons = oldBalloons.filter(b => !newBalloonsSet.has(b));
+                setConfetti(oldConfetti => {
+                    const newConfetti: Confetti[] =
+                        poppedBalloons.map(b => ({
+                            x: b.x + BalloonWidth/2,
+                            y: b.y + BalloonHeight/4, // Not 2 but 4, as the bottom half is all tail
+                            z: b.z,
+                            size: MinConfettiSize,
+                            opacity: 1,
+                        }));
+                    return [...oldConfetti, ...newConfetti];
+                });
+            }
 
             // If there are no more balloons, create a new one so the user doesn't get bored
             if (newBalloons.length === 0 && vocabulary.length > 0) {
@@ -143,6 +171,22 @@ export default function BalloonGraph() {
                     // Sort according to the distance from the wall (i.e. shadow depth)
                     .sort((a, b) => a.z - b.z),
             );
+
+            // Animate all confetti each frame. Confetti grow from MinConfettiSize, and reduce opacity until it
+            // fades away
+            setConfetti(prevValue => {
+                const newValue: Confetti[] = prevValue.map(conf => {
+                    const newSize = conf.size + ConfettiGrowSpeed;
+                    return {
+                        ...conf,
+                        size: newSize,
+                        opacity: conf.opacity - ConfettiOpacitySpeed,
+                    };
+                });
+
+                // Remove confetti once it is fully transparent
+                return newValue.filter(conf => conf.opacity > 0);
+            });
         }, RedrawDelayMs);
 
         return () => clearInterval(interval);
@@ -167,6 +211,18 @@ export default function BalloonGraph() {
             </React.Fragment>
         );
     });
+    const confettiImages = confetti.map((conf, idx) => {
+        return (
+            <image key={ idx }
+                   href="images/confetti.svg"
+                   width={ conf.size }
+                   height={ conf.size }
+                   x={ conf.x - conf.size / 2 }
+                   y={ conf.y - conf.size / 2 }
+                   opacity={ conf.opacity }
+                   filter={ `url(#shadow-${ conf.z })` }/>
+        );
+    });
 
     return (
         <svg className="balloons-graph"
@@ -179,6 +235,7 @@ export default function BalloonGraph() {
             </defs>
 
             { balloonImages }
+            { confettiImages }
         </svg>
     );
 }

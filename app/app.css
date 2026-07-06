@@ -26,11 +26,17 @@ body {
     }
 }
 
+:root {
+    --main-title-height: 6rem;
+    --controls-height: 6rem;
+}
+
 .main-title {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 10px 0;
+    height: var(--main-title-height);
 
     h1 {
         @apply text-3xl md:text-5xl ;
@@ -44,6 +50,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    max-height: calc(100vh - var(--main-title-height) - 40px);
 
     padding: 20px;
     gap: 10px;
@@ -58,6 +65,7 @@ body {
     width: 100%;
 
     height: 3rem;
+    min-height: 3rem;
     line-height: 3rem;
 
     font-weight: bold;
@@ -71,7 +79,6 @@ body {
 
 .game-footer, .main-title, .main-content, .game-controls, dialog {
     @apply w-[calc(100%-20px)]  md:w-11/12 lg:w-4/5 xl:w-3/4 2xl:w-1/2;
-    @apply max-h-[1000px];
 }
 
 .game-footer {
@@ -81,6 +88,7 @@ body {
 }
 
 .balloons-graph {
+    width: 100%;
     border-radius: 20px;
     border: 2px dashed white;
 
