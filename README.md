@@ -19,9 +19,7 @@ opportunity.
 
 > [!CAUTION]
 > This is a work in progress, less than 2 days of work so it's very rough around the edges, 
-> come back in some days!
-> You may notice there are no word in the balloons yet for example, but the flying simulation and music are done.
-> Still pending: popping sounds, improving SVGs and interaction elements.
+> come back in some days! Full list of TODOs at the bottom.
 
 
 ## Intro Screen
