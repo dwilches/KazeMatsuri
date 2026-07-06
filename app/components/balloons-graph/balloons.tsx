@@ -32,11 +32,10 @@ export interface Balloon {
  */
 export const animateBalloons = (balloons: Balloon[]) =>
     balloons
+        // Update balloon's position
         .map(animateSingleBalloon)
         // Remove balloons that have floated away
-        .filter(b => b.y + BalloonHeight > 0)
-        // Sort according to the distance from the wall (i.e. shadow depth)
-        .sort((a, b) => a.z - b.z);
+        .filter(b => b.y + BalloonHeight > 0);
 
 /**
  * Returns a copy of the balloon with an updated position, which is a bit higher up and possibly swaying to the sides.
@@ -51,12 +50,18 @@ const animateSingleBalloon = (b: Balloon): Balloon => {
     };
 };
 
+export const insertNewBalloon = (balloons: Balloon[], vocabulary: KanjiWithReadings[]): Balloon[] => {
+    return [...balloons, createNewBalloon(vocabulary)]
+        // Sort according to the distance from the wall (i.e. shadow depth)
+        .sort((a, b) => a.z - b.z);
+};
+
 /**
  * Picks a word from the vocabulary at random, then creates a balloon with that word.
  * The balloon's color, distance from the wall and sideways speed are also random.
  */
 
-export function createNewBalloon(vocabulary: KanjiWithReadings[]): Balloon {
+const createNewBalloon = (vocabulary: KanjiWithReadings[]): Balloon => {
     const randomImgIdx = Math.floor(Math.random() * BalloonImageUrls.length);
     const randomVocabulary = vocabulary[Math.floor(Math.random() * vocabulary.length)];
     return {
@@ -69,7 +74,7 @@ export function createNewBalloon(vocabulary: KanjiWithReadings[]): Balloon {
         xSpeed: 2 * (Math.random() - 0.5), // Side-wind speed between -1 and 1
         ySpeed: 1,
     };
-}
+};
 
 export const popBalloonsForWord = (balloons: Balloon[], word: string): {
     remainingBalloons: Balloon[],

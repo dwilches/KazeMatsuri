@@ -8,7 +8,7 @@ import { KanaVisualizer } from "~/components/kana-visualizer";
 import { VocabularyProvider } from "~/providers/vocabulary-provider/vocabulary-provider";
 import { WelcomeDialog } from "~/dialogs/welcome-dialog";
 import { ModalDialog } from "~/dialogs/modal-dialog";
-import BalloonGraph from "~/components/balloons-graph/balloon-graph";
+import BalloonsGraph from "~/components/balloons-graph/balloons-graph";
 
 export function meta({}: Route.MetaArgs) {
     return [
@@ -49,7 +49,7 @@ export default function Home() {
                                 {
                                     !isWelcomeModalOpen &&
                                     <>
-                                        <BalloonGraph/>
+                                        <BalloonsGraph/>
                                         <KanaVisualizer/>
                                         <GameControls/>
                                     </>

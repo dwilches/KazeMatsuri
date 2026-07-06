@@ -1,5 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
-import { useAudio } from "~/providers/audio-provider";
+import React, { useEffect, useEffectEvent, useRef, useState } from "react";
 import { useGameControls } from "~/providers/game-controls-provider";
 import { useKanaInput } from "~/providers/kana-input-provider/kana-input-provider";
 import { SvgShadowFilter } from "~/components/svg-shadow-filter";
@@ -7,7 +6,7 @@ import { useVocabulary } from "~/providers/vocabulary-provider/vocabulary-provid
 import {
     animateBalloons,
     type Balloon,
-    createNewBalloon,
+    insertNewBalloon,
     popBalloonsForWord,
 } from "~/components/balloons-graph/balloons";
 import { animateConfetti, type Confetti } from "~/components/balloons-graph/confetti";
@@ -17,8 +16,8 @@ import { BalloonHeight, BalloonWidth, SvgHeight, SvgWidth } from "~/components/b
 export const FPS = 60;
 export const RedrawDelayMs = 1 / FPS * 1000;
 
-export default function BalloonGraph() {
-    // Difficulty will vary from 1 to 10, 1 being the easiest
+export default function BalloonsGraph() {
+    // Difficulty varies from 1 to 10, 1 being the easiest
     const { difficulty, isGamePaused } = useGameControls();
     const { completeKanas } = useKanaInput();
     const { vocabulary } = useVocabulary();
@@ -28,29 +27,23 @@ export default function BalloonGraph() {
 
     const elapsedTime = useRef<number>(0);
 
-    const { playBgMusic } = useAudio();
-
-    useEffect(() => {
-        playBgMusic();
-    }, []);
-
     // Pop balloons that match the completed kana input by the user
     useEffect(() => {
         setBalloons(oldBalloons => {
             const { remainingBalloons, newConfetti } = popBalloonsForWord(oldBalloons, completeKanas);
-
             setConfetti(existingConfetti => [...existingConfetti, ...newConfetti]);
-
-            // If there are no more balloons, create a new one so the user doesn't get bored
-            if (remainingBalloons.length === 0 && vocabulary.length > 0) {
-                return [createNewBalloon(vocabulary)];
-            }
-
             return remainingBalloons;
         });
     }, [completeKanas]);
 
-    // Balloon Simulator
+    // Creates a new balloon only if there are none left
+    const createDefaultBalloon = useEffectEvent(() => {
+        if (balloons.length === 0) {
+            setBalloons(insertNewBalloon([], vocabulary));
+        }
+    });
+
+    // The main game simulator. It executes animations step by step every couple milliseconds.
     useEffect(() => {
         if (isGamePaused || !vocabulary.length) {
             return;
@@ -59,16 +52,14 @@ export default function BalloonGraph() {
         // How often to create a balloon, the delay lowers as difficulty grows
         const creationDelayMs = difficultyToDelayMs(difficulty);
 
-        // Create a default balloon so the user doesn't need to wait too long
-        if (balloons.length === 0) {
-            setBalloons([createNewBalloon(vocabulary)]);
-        }
-
         const interval = setInterval(() => {
+            // If there are no balloons left, create a default one so the user doesn't get bored
+            createDefaultBalloon();
+
             // Create new balloons at intervals according to difficulty.
             elapsedTime.current += RedrawDelayMs;
             if (elapsedTime.current > creationDelayMs) {
-                setBalloons(prevValue => ([...prevValue, createNewBalloon(vocabulary)]));
+                setBalloons(ballons => insertNewBalloon(ballons, vocabulary));
                 elapsedTime.current = 0;
             }
 
@@ -117,6 +108,7 @@ export default function BalloonGraph() {
              xmlns="http://www.w3.org/2000/svg"
              viewBox={ `0 0 ${ SvgWidth } ${ SvgHeight }` }>
             <defs>
+                <SvgShadowFilter filterName={ "shadow-1" } shadowDepth={ 5 }/>
                 <SvgShadowFilter filterName={ "shadow-1" } shadowDepth={ 5 }/>
                 <SvgShadowFilter filterName={ "shadow-2" } shadowDepth={ 7 }/>
                 <SvgShadowFilter filterName={ "shadow-3" } shadowDepth={ 10 }/>
