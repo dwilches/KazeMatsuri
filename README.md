@@ -19,7 +19,7 @@ opportunity.
 
 > [!CAUTION]
 > This is a work in progress, less than 2 days of work so it's very rough around the edges, 
-> come back in some days! Full list of TODOs at the bottom.
+> come back in some days!
 
 
 ## Intro Screen
