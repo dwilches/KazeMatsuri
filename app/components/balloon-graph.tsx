@@ -110,7 +110,7 @@ export default function BalloonGraph() {
             }
 
             return newBalloons;
-        })
+        });
     }, [completeKanas]);
 
     // Balloon Simulator

@@ -6,21 +6,28 @@ interface GameControlsType {
 
     isGamePaused: boolean;
     toggleGamePaused: () => void;
+    startGame: () => void;
 }
 
 const GameControlsContext = React.createContext<GameControlsType | null>(null);
 
 export const GameControlsProvider = ({ children }: { children: React.ReactNode }) => {
     const [difficulty, setDifficulty] = useState(1);
-    const [isGamePaused, setGamePaused] = useState(false);
+    const [isGamePaused, setGamePaused] = useState(true);
 
     const toggleGamePaused = () => {
         setGamePaused(!isGamePaused);
     };
 
+    const startGame = () => {
+        if (isGamePaused) {
+            setGamePaused(false);
+        }
+    };
+
     const contextValues = {
         difficulty, setDifficulty,
-        isGamePaused, toggleGamePaused,
+        isGamePaused, toggleGamePaused, startGame,
     };
 
     return (
