@@ -146,6 +146,7 @@ dialog {
 
 #settings-dialog {
     background: url("/images/bg-square.png");
+
     &::backdrop {
         background: none;
     }

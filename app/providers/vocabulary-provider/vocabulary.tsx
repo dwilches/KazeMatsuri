@@ -43,7 +43,7 @@ const DefaultVocabulary: KanjiWithReadings[] = [
  *      >> app/providers/vocabulary-provider/wanikani-level-$WANIKANI_LEVEL.tsx
  * done
 */
-const WanikaniLevels: Record<number, KanjiWithReadings[]> = {
+const WanikaniLevels = {
     1: WanikaniLevel1,
     2: WanikaniLevel2,
     3: WanikaniLevel3,
@@ -54,7 +54,7 @@ const WanikaniLevels: Record<number, KanjiWithReadings[]> = {
     8: WanikaniLevel8,
     9: WanikaniLevel9,
     10: WanikaniLevel10,
-};
+} as Record<number, KanjiWithReadings[]>;
 
 export const getVocabularyForLevel = (level: number): KanjiWithReadings[] => {
     const wanikaniLevelVocabulary = WanikaniLevels[level];

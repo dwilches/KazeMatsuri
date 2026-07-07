@@ -1,5 +1,3 @@
-
-
 export const SvgWidth = 1000;
 export const SvgHeight = 800;
 

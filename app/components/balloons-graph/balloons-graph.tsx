@@ -53,6 +53,14 @@ export function BalloonsGraph() {
         });
     };
 
+    // Allows clicking on the text of balloons to open a page with more information about the kanji.
+    // Only frozen balloons can be clicked, to avoid unintended clicks.
+    const onBalloonTextClicked = (balloon: Balloon) => {
+        if (balloon.revealAnswer) {
+            window.open(balloon.url, "_blank", "noreferrer");
+        }
+    };
+
     // Creates a new balloon only if there are none left
     const createDefaultBalloon = useEffectEvent(() => {
         if (balloons.length === 0) {
@@ -99,15 +107,15 @@ export function BalloonsGraph() {
                        filter={ `url(#shadow-${ balloon.z })` }
                        onClick={ () => onBalloonClicked(balloon) }
                        style={ { cursor: "pointer" } }/>
-                <a href={ balloon.url } target="_blank" rel="noreferrer">
-                    <text x={ balloon.x + BalloonWidth / 2 }
-                          y={ balloon.y }
-                          dy={ -10 }
-                          textAnchor={ "middle" }
-                          filter={ `url(#shadow-${ balloon.z })` }>
-                        { balloon.revealAnswer ? balloon.joinedReadings : balloon.kanji }
-                    </text>
-                </a>
+                <text x={ balloon.x + BalloonWidth / 2 }
+                      y={ balloon.y }
+                      dy={ -10 }
+                      textAnchor={ "middle" }
+                      filter={ `url(#shadow-${ balloon.z })` }
+                      style={ { cursor: balloon.revealAnswer ? "pointer" : "" } }
+                      onClick={ () => onBalloonTextClicked(balloon) }>
+                    { balloon.revealAnswer ? balloon.joinedReadings : balloon.kanji }
+                </text>
             </React.Fragment>
         );
     });

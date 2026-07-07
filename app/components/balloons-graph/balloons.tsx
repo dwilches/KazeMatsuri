@@ -46,6 +46,11 @@ export const animateBalloons = (balloons: Balloon[]) =>
  * Returns a copy of the balloon with an updated position, which is a bit higher up and possibly swaying to the sides.
  */
 const animateSingleBalloon = (b: Balloon): Balloon => {
+    // Stop balloons mid-air when the answer is being revealed so the user can read it and click on it
+    if (b.revealAnswer) {
+        return b;
+    }
+
     const windChanged = Math.random() < CrossWindChangeProbability;
     return {
         ...b,
