@@ -2,6 +2,7 @@
 
 Wind Festival (風祭り) - A Kanji game I created for practicing React
 
+[![ci.yml](https://github.com/dwilches/KazeMatsuri/actions/workflows/ci.yml/badge.svg)](https://github.com/dwilches/KazeMatsuri/actions/workflows/ci.yml)
 
 > [!TIP]
 > You can go [here](https://dwilches.github.io/KazeMatsuri/) to play this game from your browser. It's still a work in progress so please be kind.
@@ -38,5 +39,3 @@ To be completed in the next week:
 - Allow playing on mobile! 
   - The keyboard won't show there as there is no input field
   - Make balloon size responsive as well
-  - Text stroke in welcome screen is all black
-  - Welcome modal height is too large

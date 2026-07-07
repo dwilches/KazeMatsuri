@@ -2,6 +2,9 @@ name: ci.yml
 on:
   push:
     branches: [ main ]
+    paths-ignore:
+      - 'docs/**'
+      - README.md
 
   # Allow manual run
   workflow_dispatch:
