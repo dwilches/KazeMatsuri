@@ -9,6 +9,7 @@ import { VocabularyProvider } from "~/providers/vocabulary-provider/vocabulary-p
 import { WelcomeDialog } from "~/dialogs/welcome-dialog/welcome-dialog";
 import { ModalDialog } from "~/dialogs/modal-dialog";
 import { BalloonsGraph } from "~/components/balloons-graph/balloons-graph";
+import { MobileInputHandler } from "~/components/mobile-input-handler";
 
 export function meta({}: Route.MetaArgs) {
     return [
@@ -52,6 +53,7 @@ export default function Home() {
                                         <BalloonsGraph/>
                                         <KanaVisualizer/>
                                         <GameControls/>
+                                        <MobileInputHandler/>
                                     </>
                                 }
 

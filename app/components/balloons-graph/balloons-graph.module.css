@@ -1,0 +1,16 @@
+
+.balloonsGraph {
+    width: 100%;
+    border-radius: 20px;
+    border: 2px dashed white;
+
+    text {
+        fill: black;
+        text-anchor: middle;
+        paint-order: stroke;
+        stroke-width: 3px;
+        stroke-linejoin: round;
+        stroke: white;
+        font-weight: bold;
+    }
+}
