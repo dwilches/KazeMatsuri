@@ -1,14 +1,14 @@
 import type { Route } from "./+types/home";
 import React, { useRef } from "react";
 import { AudioProvider } from "~/providers/audio-provider";
-import GameControls from "~/components/game-controls";
+import { GameControls } from "~/components/game-controls/game-controls";
 import { GameControlsProvider } from "~/providers/game-controls-provider";
 import { KanaInputProvider } from "~/providers/kana-input-provider/kana-input-provider";
 import { KanaVisualizer } from "~/components/kana-visualizer";
 import { VocabularyProvider } from "~/providers/vocabulary-provider/vocabulary-provider";
-import { WelcomeDialog } from "~/dialogs/welcome-dialog";
+import { WelcomeDialog } from "~/dialogs/welcome-dialog/welcome-dialog";
 import { ModalDialog } from "~/dialogs/modal-dialog";
-import BalloonsGraph from "~/components/balloons-graph/balloons-graph";
+import { BalloonsGraph } from "~/components/balloons-graph/balloons-graph";
 
 export function meta({}: Route.MetaArgs) {
     return [
@@ -42,10 +42,10 @@ export default function Home() {
                 </h1>
             </div>
             <div className="main-content">
-                <VocabularyProvider>
-                    <KanaInputProvider>
-                        <GameControlsProvider>
-                            <AudioProvider>
+                <AudioProvider>
+                    <VocabularyProvider>
+                        <KanaInputProvider>
+                            <GameControlsProvider>
                                 {
                                     !isWelcomeModalOpen &&
                                     <>
@@ -57,19 +57,20 @@ export default function Home() {
 
                                 {
                                     isWelcomeModalOpen &&
-                                    <ModalDialog isOpen={ isWelcomeModalOpen }
+                                    <ModalDialog id={ "welcome-dialog" }
+                                                 isOpen={ isWelcomeModalOpen }
                                                  onClose={ onCloseWelcomeDialog }>
                                         <WelcomeDialog closeCallbackRef={ closeCallbackRef }/>
                                     </ModalDialog>
                                 }
 
-                            </AudioProvider>
-                        </GameControlsProvider>
-                    </KanaInputProvider>
-                </VocabularyProvider>
+                            </GameControlsProvider>
+                        </KanaInputProvider>
+                    </VocabularyProvider>
+                </AudioProvider>
             </div>
             <div className="game-footer">
-                {/*Credits*/}
+                {/*Credits*/ }
             </div>
         </div>
     );

@@ -77,7 +77,7 @@ body {
     font-size: 1.5rem;
 }
 
-.game-footer, .main-title, .main-content, .game-controls, dialog {
+.game-footer, .main-title, .main-content, .game-controls, #welcome-dialog {
     @apply w-[calc(100%-20px)]  md:w-11/12 lg:w-4/5 xl:w-3/4 2xl:w-1/2;
 }
 
@@ -100,24 +100,6 @@ body {
         stroke-linejoin: round;
         stroke: white;
         font-weight: bold;
-    }
-}
-
-.game-controls {
-    @apply flex items-center justify-center;
-    @apply flex-col md:flex-row;
-
-    border-radius: 20px;
-    border: 2px dashed white;
-    width: 100%;
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-    gap: 50px;
-
-    .play-pause-button {
-        @apply order-1 md:order-2;
-        cursor: pointer;
     }
 }
 
@@ -144,30 +126,8 @@ dialog {
         backdrop-filter: brightness(50%) blur(20px);
         -webkit-backdrop-filter: brightness(50%) blur(5px);
     }
-}
 
-.welcome-dialog {
-    a {
-        color: #ffb376;
-        &:hover {
-            text-decoration: underline;
-        }
-    }
-
-    p {
-        margin: .25rem 0;
-        color: white;
-    }
-
-    .japanese {
-        color: #58ecb3;
-
-        @supports (-moz-appearance: none) {
-            font-weight: bold;
-        }
-    }
-
-    .start-button {
+    .close-button {
         cursor: pointer;
         color: #397fba;
         border: 2px solid #ffffff80;
@@ -181,5 +141,12 @@ dialog {
         &:hover {
             background-color: white;
         }
+    }
+}
+
+#settings-dialog {
+    background: url("/images/bg-square.png");
+    &::backdrop {
+        background: none;
     }
 }

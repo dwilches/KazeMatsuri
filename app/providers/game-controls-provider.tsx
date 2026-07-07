@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import { useAudio } from "~/providers/audio-provider";
 
 interface GameControlsType {
     difficulty: number;
@@ -12,6 +13,8 @@ interface GameControlsType {
 const GameControlsContext = React.createContext<GameControlsType | null>(null);
 
 export const GameControlsProvider = ({ children }: { children: React.ReactNode }) => {
+    const { playBgMusic } = useAudio();
+
     const [difficulty, setDifficulty] = useState(1);
     const [isGamePaused, setGamePaused] = useState(true);
 
@@ -20,14 +23,14 @@ export const GameControlsProvider = ({ children }: { children: React.ReactNode }
     };
 
     const startGame = () => {
-        if (isGamePaused) {
-            setGamePaused(false);
-        }
+        playBgMusic();
+        setGamePaused(false);
     };
 
     const contextValues = {
         difficulty, setDifficulty,
-        isGamePaused, toggleGamePaused, startGame,
+        isGamePaused, toggleGamePaused,
+        startGame,
     };
 
     return (

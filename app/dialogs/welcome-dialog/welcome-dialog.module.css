@@ -1,0 +1,27 @@
+
+.welcomeDialog {
+    a {
+        color: #ffb376;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    p {
+        margin: .25rem 0;
+        color: white;
+    }
+
+    .altTextColor {
+        color: #fff0be;
+    }
+
+    .japaneseWord {
+        color: #58ecb3;
+
+        @supports (-moz-appearance: none) {
+            font-weight: bold;
+        }
+    }
+}

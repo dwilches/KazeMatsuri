@@ -1,0 +1,12 @@
+
+.settingsDialog {
+    h1 {
+        font-size: 1.25rem;
+        color: #58ecb3;
+        align-self: center;
+    }
+
+    p {
+        margin-top: 20px;
+    }
+}

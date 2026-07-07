@@ -3,18 +3,15 @@ import styles from "./config-slider.module.css";
 
 interface ConfigSliderProps {
     iconSrc: string;
-    initialValue: number;
+    value: number;
     minValue: number;
     maxValue: number;
     onChange: (value: number) => void;
 }
 
 export const ConfigSlider = (props: ConfigSliderProps) => {
-    const [value, setValue] = React.useState(props.initialValue);
-
     const handleSliderChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const newValue = parseInt(event.target.value);
-        setValue(newValue);
         props.onChange(newValue);
     };
 
@@ -24,9 +21,9 @@ export const ConfigSlider = (props: ConfigSliderProps) => {
                  width={ 48 } height={ 48 }
                  alt=""/>
             <input type="range"
-                   min={ props.minValue } max={ props.maxValue } value={ value }
+                   min={ props.minValue } max={ props.maxValue } value={ props.value }
                    style={ {
-                       "--slider-thumb-height": valueToSliderHeight(value, props.minValue, props.maxValue),
+                       "--slider-thumb-height": valueToSliderHeight(props.value, props.minValue, props.maxValue),
                    } as React.CSSProperties }
                    onChange={ handleSliderChange }/>
         </div>

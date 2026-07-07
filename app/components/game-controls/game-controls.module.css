@@ -1,0 +1,16 @@
+
+.gameControls {
+    @apply flex items-center justify-center;
+
+    border-radius: 20px;
+    border: 2px dashed white;
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+
+    img {
+        cursor: pointer;
+    }
+}

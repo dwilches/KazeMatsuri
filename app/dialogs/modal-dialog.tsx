@@ -1,12 +1,13 @@
 import React, { useEffect, useRef } from "react";
 
 interface ModalDialogProps {
+    id: string;
     children: React.ReactNode;
     isOpen: boolean;
     onClose: () => void;
 }
 
-export const ModalDialog = ({ children, isOpen, onClose }: ModalDialogProps) => {
+export const ModalDialog = ({ id, children, isOpen, onClose }: ModalDialogProps) => {
 
     const dialogRef = useRef<HTMLDialogElement>(null);
 
@@ -24,7 +25,7 @@ export const ModalDialog = ({ children, isOpen, onClose }: ModalDialogProps) => 
 
     return (
         <dialog ref={ dialogRef }
-                id="modal-dialog"
+                id={ id }
                 onClose={ onClose }>
             { children }
         </dialog>

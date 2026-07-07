@@ -1,10 +1,12 @@
 import React, { createContext, useContext, useEffect, useRef, useState } from "react";
-import { useGameControls } from "~/providers/game-controls-provider";
 
 interface AudioContextType {
     playBgMusic: () => void;
+    pauseBgMusic: () => void;
+
     bgMusicVolume: number;
     setBgMusicVolume: (volume: number) => void;
+
     playBalloonPopSound: () => void;
 }
 
@@ -15,31 +17,24 @@ export const AudioProvider = ({ children }: { children: React.ReactNode }) => {
     const bgAudioRef = useRef<HTMLAudioElement>(null);
     const popAudioRef = useRef<HTMLAudioElement>(null);
 
-    const [isPlayingBgMusic, setIsPlayingBgMusic] = useState(false);
     const [bgMusicVolume, setBgMusicVolume] = useState(0.5); // half volume by default
-    const { isGamePaused } = useGameControls();
 
     useEffect(() => {
-        if (bgAudioRef.current) {
-            bgAudioRef.current.volume = bgMusicVolume;
-
-            if (bgMusicVolume == 0 || isGamePaused) {
-                pauseBgMusic();
-            } else if (!isPlayingBgMusic) {
-                playBgMusic();
-            }
+        if (!bgAudioRef.current) {
+            // Not having the DOM element is normal when starting the application
+            return;
         }
-    }, [bgMusicVolume, isGamePaused]);
+
+        bgAudioRef.current.volume = bgMusicVolume;
+    }, [bgMusicVolume]);
 
     const playBgMusic = () => {
         if (!bgAudioRef.current) {
-            // Can't play BG music, until there is a DOM element, this is not an error, it's normal when starting
-            // the application
+            // Not having the DOM element is normal when starting the application
             return;
         }
 
         bgAudioRef.current.play()
-            .then(() => setIsPlayingBgMusic(true))
             .catch(error => console.error("Couldn't play BG music:", error));
     };
 
@@ -49,7 +44,6 @@ export const AudioProvider = ({ children }: { children: React.ReactNode }) => {
         }
 
         bgAudioRef.current.pause();
-        setIsPlayingBgMusic(false);
     };
 
     const playBalloonPopSound = () => {
@@ -65,7 +59,8 @@ export const AudioProvider = ({ children }: { children: React.ReactNode }) => {
     };
 
     const providerValues = {
-        playBgMusic, bgMusicVolume, setBgMusicVolume,
+        playBgMusic, pauseBgMusic,
+        bgMusicVolume, setBgMusicVolume,
         playBalloonPopSound,
     };
 
