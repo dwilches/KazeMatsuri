@@ -43,6 +43,16 @@ export default function BalloonsGraph() {
         });
     }, [completeKanas]);
 
+    // If the user doesn't remember the reading of a kanji, clicking on the balloon reveals the answers.
+    const onBalloonClicked = (balloon: Balloon) => {
+        setBalloons(bb => {
+            balloon.kanji = balloon.readings.join(", ")
+            // Returning a different array triggers re-rendering
+            return [...bb];
+        })
+
+    };
+
     // Creates a new balloon only if there are none left
     const createDefaultBalloon = useEffectEvent(() => {
         if (balloons.length === 0) {
@@ -86,7 +96,8 @@ export default function BalloonsGraph() {
                        height={ BalloonHeight }
                        x={ balloon.x }
                        y={ balloon.y }
-                       filter={ `url(#shadow-${ balloon.z })` }/>
+                       filter={ `url(#shadow-${ balloon.z })` }
+                       onClick={ () => onBalloonClicked(balloon) }/>
                 <text x={ balloon.x + BalloonWidth / 2 }
                       y={ balloon.y }
                       dy={ -10 }
