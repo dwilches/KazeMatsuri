@@ -34,7 +34,6 @@ opportunity.
 To be completed in the next week:
 
 - Credits
-- Balloon popping effects/sounds
 - Allow changing kanji levels
 - Allow playing on mobile! 
   - The keyboard won't show there as there is no input field

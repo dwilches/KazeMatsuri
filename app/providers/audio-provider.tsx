@@ -5,6 +5,7 @@ interface AudioContextType {
     playBgMusic: () => void;
     bgMusicVolume: number;
     setBgMusicVolume: (volume: number) => void;
+    playBalloonPopSound: () => void;
 }
 
 const AudioContext = createContext<AudioContextType | null>(null);
@@ -12,6 +13,8 @@ const AudioContext = createContext<AudioContextType | null>(null);
 export const AudioProvider = ({ children }: { children: React.ReactNode }) => {
 
     const bgAudioRef = useRef<HTMLAudioElement>(null);
+    const popAudioRef = useRef<HTMLAudioElement>(null);
+
     const [isPlayingBgMusic, setIsPlayingBgMusic] = useState(false);
     const [bgMusicVolume, setBgMusicVolume] = useState(0.5); // half volume by default
     const { isGamePaused } = useGameControls();
@@ -49,8 +52,21 @@ export const AudioProvider = ({ children }: { children: React.ReactNode }) => {
         setIsPlayingBgMusic(false);
     };
 
+    const playBalloonPopSound = () => {
+        if (!popAudioRef.current) {
+            console.error("Error playing pop sound, there is no audio DOM element");
+            return;
+        }
+
+        const audioClone = popAudioRef.current.cloneNode(true) as HTMLAudioElement;
+        audioClone.play()
+            .catch(error => console.error("Couldn't play pop sound:", error));
+        audioClone.addEventListener("ended", () => audioClone.remove());
+    };
+
     const providerValues = {
         playBgMusic, bgMusicVolume, setBgMusicVolume,
+        playBalloonPopSound,
     };
 
     return (
@@ -58,8 +74,10 @@ export const AudioProvider = ({ children }: { children: React.ReactNode }) => {
             { children }
 
             <audio ref={ bgAudioRef }
-                   src="audio/mochamusic-sugar-rush-405676.mp3"
+                   src="audio/bg-music.mp3"
                    loop/>
+            <audio ref={ popAudioRef }
+                   src="audio/balloon-pop.mp3"/>
         </AudioContext.Provider>
     );
 };

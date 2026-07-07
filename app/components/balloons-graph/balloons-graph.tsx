@@ -11,6 +11,7 @@ import {
 } from "~/components/balloons-graph/balloons";
 import { animateConfetti, type Confetti } from "~/components/balloons-graph/confetti";
 import { BalloonHeight, BalloonWidth, SvgHeight, SvgWidth } from "~/components/balloons-graph/constants";
+import { useAudio } from "~/providers/audio-provider";
 
 // Calculate the frame delay in ms to animate at 60fps
 export const FPS = 60;
@@ -22,6 +23,8 @@ export default function BalloonsGraph() {
     const { completeKanas } = useKanaInput();
     const { vocabulary } = useVocabulary();
 
+    const { playBalloonPopSound } = useAudio();
+
     const [balloons, setBalloons] = useState<Balloon[]>([]);
     const [confetti, setConfetti] = useState<Confetti[]>([]);
 
@@ -32,6 +35,10 @@ export default function BalloonsGraph() {
         setBalloons(oldBalloons => {
             const { remainingBalloons, newConfetti } = popBalloonsForWord(oldBalloons, completeKanas);
             setConfetti(existingConfetti => [...existingConfetti, ...newConfetti]);
+
+            // If any balloon was popped, play a sound
+            newConfetti.forEach(() => playBalloonPopSound());
+
             return remainingBalloons;
         });
     }, [completeKanas]);
