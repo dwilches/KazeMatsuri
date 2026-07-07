@@ -4,7 +4,7 @@ import { AudioProvider } from "~/providers/audio-provider";
 import { GameControls } from "~/components/game-controls/game-controls";
 import { GameControlsProvider } from "~/providers/game-controls-provider";
 import { KanaInputProvider } from "~/providers/kana-input-provider/kana-input-provider";
-import { KanaVisualizer } from "~/components/kana-visualizer";
+import { KanaVisualizer } from "~/components/kana-visualizer/kana-visualizer";
 import { VocabularyProvider } from "~/providers/vocabulary-provider/vocabulary-provider";
 import { WelcomeDialog } from "~/dialogs/welcome-dialog/welcome-dialog";
 import { ModalDialog } from "~/dialogs/modal-dialog";

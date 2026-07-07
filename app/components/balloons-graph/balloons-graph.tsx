@@ -12,6 +12,8 @@ import {
 import { animateConfetti, type Confetti } from "~/components/balloons-graph/confetti";
 import { BalloonHeight, BalloonWidth, SvgHeight, SvgWidth } from "~/components/balloons-graph/constants";
 import { useAudio } from "~/providers/audio-provider";
+import styles from "./balloons-graph.module.css";
+
 
 // Calculate the frame delay in ms to animate at 60fps
 export const FPS = 60;
@@ -133,7 +135,7 @@ export function BalloonsGraph() {
     });
 
     return (
-        <svg className="balloons-graph"
+        <svg className={ styles.balloonsGraph }
              xmlns="http://www.w3.org/2000/svg"
              viewBox={ `0 0 ${ SvgWidth } ${ SvgHeight }` }>
             <defs>
