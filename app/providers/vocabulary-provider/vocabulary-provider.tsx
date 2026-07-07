@@ -2,6 +2,7 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 import { getVocabularyForLevel, type KanjiWithReadings } from "~/providers/vocabulary-provider/vocabulary";
 
 interface VocabularyContextType {
+    level: number;
     setLevel: (level: number) => void;
     vocabulary: KanjiWithReadings[];
 }
@@ -19,6 +20,7 @@ export const VocabularyProvider = ({ children }: { children: React.ReactNode }) 
     }, [level]);
 
     const values: VocabularyContextType = {
+        level,
         setLevel,
         vocabulary,
     };

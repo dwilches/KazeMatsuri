@@ -1,1013 +1,1336 @@
-export const WanikaniLevel8 = [
+export const WanikaniLevel8 = 
+[
     {
+        "type": "kanji",
         "kanji": "池",
+        "url": "https://www.wanikani.com/kanji/%E6%B1%A0",
         "readings": [
             "ち",
-            "いけ",
-        ],
+            "いけ"
+        ]
     },
     {
+        "type": "kanji",
         "kanji": "次",
+        "url": "https://www.wanikani.com/kanji/%E6%AC%A1",
         "readings": [
             "じ",
             "し",
             "つぎ",
-            "つ",
-        ],
+            "つ"
+        ]
     },
     {
+        "type": "kanji",
         "kanji": "京",
+        "url": "https://www.wanikani.com/kanji/%E4%BA%AC",
         "readings": [
             "きょう",
-            "みやこ",
-        ],
+            "みやこ"
+        ]
     },
     {
+        "type": "kanji",
         "kanji": "支",
+        "url": "https://www.wanikani.com/kanji/%E6%94%AF",
         "readings": [
             "し",
-            "ささ",
-        ],
+            "ささ"
+        ]
     },
     {
+        "type": "kanji",
         "kanji": "住",
+        "url": "https://www.wanikani.com/kanji/%E4%BD%8F",
         "readings": [
             "じゅう",
-            "す",
-        ],
+            "す"
+        ]
     },
     {
+        "type": "kanji",
         "kanji": "助",
+        "url": "https://www.wanikani.com/kanji/%E5%8A%A9",
         "readings": [
             "じょ",
             "たす",
-            "すけ",
-        ],
+            "すけ"
+        ]
     },
     {
+        "type": "kanji",
         "kanji": "医",
+        "url": "https://www.wanikani.com/kanji/%E5%8C%BB",
         "readings": [
-            "い",
-        ],
+            "い"
+        ]
     },
     {
+        "type": "kanji",
         "kanji": "君",
+        "url": "https://www.wanikani.com/kanji/%E5%90%9B",
         "readings": [
             "くん",
-            "きみ",
-        ],
+            "きみ"
+        ]
     },
     {
+        "type": "kanji",
         "kanji": "対",
+        "url": "https://www.wanikani.com/kanji/%E5%AF%BE",
         "readings": [
-            "たい",
-        ],
+            "たい"
+        ]
     },
     {
+        "type": "kanji",
         "kanji": "局",
+        "url": "https://www.wanikani.com/kanji/%E5%B1%80",
         "readings": [
-            "きょく",
-        ],
+            "きょく"
+        ]
     },
     {
+        "type": "kanji",
         "kanji": "役",
+        "url": "https://www.wanikani.com/kanji/%E5%BD%B9",
         "readings": [
             "やく",
-            "えき",
-        ],
+            "えき"
+        ]
     },
     {
+        "type": "kanji",
         "kanji": "投",
+        "url": "https://www.wanikani.com/kanji/%E6%8A%95",
         "readings": [
             "とう",
-            "な",
-        ],
+            "な"
+        ]
     },
     {
+        "type": "kanji",
         "kanji": "決",
+        "url": "https://www.wanikani.com/kanji/%E6%B1%BA",
         "readings": [
             "けつ",
-            "き",
-        ],
+            "き"
+        ]
     },
     {
+        "type": "kanji",
         "kanji": "究",
+        "url": "https://www.wanikani.com/kanji/%E7%A9%B6",
         "readings": [
             "きゅう",
-            "きわ",
-        ],
+            "きわ"
+        ]
     },
     {
+        "type": "kanji",
         "kanji": "身",
+        "url": "https://www.wanikani.com/kanji/%E8%BA%AB",
         "readings": [
             "しん",
-            "み",
-        ],
+            "み"
+        ]
     },
     {
+        "type": "kanji",
         "kanji": "者",
+        "url": "https://www.wanikani.com/kanji/%E8%80%85",
         "readings": [
             "しゃ",
-            "もの",
-        ],
+            "もの"
+        ]
     },
     {
+        "type": "kanji",
         "kanji": "研",
+        "url": "https://www.wanikani.com/kanji/%E7%A0%94",
         "readings": [
             "けん",
-            "と",
-        ],
+            "と"
+        ]
     },
     {
+        "type": "kanji",
         "kanji": "馬",
+        "url": "https://www.wanikani.com/kanji/%E9%A6%AC",
         "readings": [
             "ば",
             "め",
             "うま",
-            "ま",
-        ],
+            "ま"
+        ]
     },
     {
+        "type": "kanji",
         "kanji": "森",
+        "url": "https://www.wanikani.com/kanji/%E6%A3%AE",
         "readings": [
             "もり",
-            "しん",
-        ],
+            "しん"
+        ]
     },
     {
+        "type": "kanji",
         "kanji": "場",
+        "url": "https://www.wanikani.com/kanji/%E5%A0%B4",
         "readings": [
             "じょう",
-            "ば",
-        ],
+            "ば"
+        ]
     },
     {
+        "type": "kanji",
         "kanji": "朝",
+        "url": "https://www.wanikani.com/kanji/%E6%9C%9D",
         "readings": [
             "あさ",
-            "ちょう",
-        ],
+            "ちょう"
+        ]
     },
     {
+        "type": "kanji",
         "kanji": "番",
+        "url": "https://www.wanikani.com/kanji/%E7%95%AA",
         "readings": [
             "ばん",
             "つが",
-            "つがい",
-        ],
+            "つがい"
+        ]
     },
     {
+        "type": "kanji",
         "kanji": "答",
+        "url": "https://www.wanikani.com/kanji/%E7%AD%94",
         "readings": [
             "こた",
-            "とう",
-        ],
+            "とう"
+        ]
     },
     {
+        "type": "kanji",
         "kanji": "絵",
+        "url": "https://www.wanikani.com/kanji/%E7%B5%B5",
         "readings": [
-            "え",
-        ],
+            "え"
+        ]
     },
     {
+        "type": "kanji",
         "kanji": "買",
+        "url": "https://www.wanikani.com/kanji/%E8%B2%B7",
         "readings": [
             "か",
-            "ばい",
-        ],
+            "ばい"
+        ]
     },
     {
+        "type": "kanji",
         "kanji": "道",
+        "url": "https://www.wanikani.com/kanji/%E9%81%93",
         "readings": [
             "どう",
-            "みち",
-        ],
+            "みち"
+        ]
     },
     {
+        "type": "kanji",
         "kanji": "間",
+        "url": "https://www.wanikani.com/kanji/%E9%96%93",
         "readings": [
             "かん",
             "けん",
             "あいだ",
-            "ま",
-        ],
+            "ま"
+        ]
     },
     {
+        "type": "kanji",
         "kanji": "雲",
+        "url": "https://www.wanikani.com/kanji/%E9%9B%B2",
         "readings": [
             "くも",
-            "うん",
-        ],
+            "うん"
+        ]
     },
     {
+        "type": "kanji",
         "kanji": "数",
+        "url": "https://www.wanikani.com/kanji/%E6%95%B0",
         "readings": [
             "すう",
             "かぞ",
-            "かず",
-        ],
+            "かず"
+        ]
     },
     {
+        "type": "kanji",
         "kanji": "楽",
+        "url": "https://www.wanikani.com/kanji/%E6%A5%BD",
         "readings": [
             "らく",
             "がく",
-            "たの",
-        ],
+            "たの"
+        ]
     },
     {
+        "type": "kanji",
         "kanji": "話",
+        "url": "https://www.wanikani.com/kanji/%E8%A9%B1",
         "readings": [
             "わ",
             "はな",
-            "はなし",
-        ],
+            "はなし"
+        ]
     },
     {
+        "type": "kanji",
         "kanji": "電",
+        "url": "https://www.wanikani.com/kanji/%E9%9B%BB",
         "readings": [
-            "でん",
-        ],
+            "でん"
+        ]
     },
     {
+        "type": "kanji",
         "kanji": "所",
+        "url": "https://www.wanikani.com/kanji/%E6%89%80",
         "readings": [
             "しょ",
-            "ところ",
-        ],
+            "ところ"
+        ]
     },
     {
+        "type": "kanji",
         "kanji": "反",
+        "url": "https://www.wanikani.com/kanji/%E5%8F%8D",
         "readings": [
             "はん",
-            "そ",
-        ],
+            "そ"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "円い",
+        "url": "https://www.wanikani.com/vocabulary/%E5%86%86%E3%81%84",
         "readings": [
-            "まるい",
-        ],
+            "まるい"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "見分ける",
+        "url": "https://www.wanikani.com/vocabulary/%E8%A6%8B%E5%88%86%E3%81%91%E3%82%8B",
         "readings": [
-            "みわける",
-        ],
+            "みわける"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "池",
+        "url": "https://www.wanikani.com/vocabulary/%E6%B1%A0",
         "readings": [
-            "いけ",
-        ],
+            "いけ"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "次回",
+        "url": "https://www.wanikani.com/vocabulary/%E6%AC%A1%E5%9B%9E",
         "readings": [
-            "じかい",
-        ],
+            "じかい"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "中東",
+        "url": "https://www.wanikani.com/vocabulary/%E4%B8%AD%E6%9D%B1",
         "readings": [
-            "ちゅうとう",
-        ],
+            "ちゅうとう"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "辺り",
+        "url": "https://www.wanikani.com/vocabulary/%E8%BE%BA%E3%82%8A",
         "readings": [
-            "あたり",
-        ],
+            "あたり"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "通る",
+        "url": "https://www.wanikani.com/vocabulary/%E9%80%9A%E3%82%8B",
         "readings": [
-            "とおる",
-        ],
+            "とおる"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "馬",
+        "url": "https://www.wanikani.com/vocabulary/%E9%A6%AC",
         "readings": [
-            "うま",
-        ],
+            "うま"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "馬力",
+        "url": "https://www.wanikani.com/vocabulary/%E9%A6%AC%E5%8A%9B",
         "readings": [
-            "ばりき",
-        ],
+            "ばりき"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "支える",
+        "url": "https://www.wanikani.com/vocabulary/%E6%94%AF%E3%81%88%E3%82%8B",
         "readings": [
-            "ささえる",
-        ],
+            "ささえる"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "支店",
+        "url": "https://www.wanikani.com/vocabulary/%E6%94%AF%E5%BA%97",
         "readings": [
-            "してん",
-        ],
+            "してん"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "住む",
+        "url": "https://www.wanikani.com/vocabulary/%E4%BD%8F%E3%82%80",
         "readings": [
-            "すむ",
-        ],
+            "すむ"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "住人",
+        "url": "https://www.wanikani.com/vocabulary/%E4%BD%8F%E4%BA%BA",
         "readings": [
-            "じゅうにん",
-        ],
+            "じゅうにん"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "助ける",
+        "url": "https://www.wanikani.com/vocabulary/%E5%8A%A9%E3%81%91%E3%82%8B",
         "readings": [
-            "たすける",
-        ],
+            "たすける"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "助言",
+        "url": "https://www.wanikani.com/vocabulary/%E5%8A%A9%E8%A8%80",
         "readings": [
-            "じょげん",
-        ],
+            "じょげん"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "医大",
+        "url": "https://www.wanikani.com/vocabulary/%E5%8C%BB%E5%A4%A7",
         "readings": [
-            "いだい",
-        ],
+            "いだい"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "医学",
+        "url": "https://www.wanikani.com/vocabulary/%E5%8C%BB%E5%AD%A6",
         "readings": [
-            "いがく",
-        ],
+            "いがく"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "医者",
+        "url": "https://www.wanikani.com/vocabulary/%E5%8C%BB%E8%80%85",
         "readings": [
-            "いしゃ",
-        ],
+            "いしゃ"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "君主国",
+        "url": "https://www.wanikani.com/vocabulary/%E5%90%9B%E4%B8%BB%E5%9B%BD",
         "readings": [
-            "くんしゅこく",
-        ],
+            "くんしゅこく"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "君",
+        "url": "https://www.wanikani.com/vocabulary/%E5%90%9B",
         "readings": [
-            "きみ",
-        ],
+            "きみ"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "〜君",
+        "url": "https://www.wanikani.com/vocabulary/%E3%80%9C%E5%90%9B",
         "readings": [
-            "くん",
-        ],
+            "くん"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "対する",
+        "url": "https://www.wanikani.com/vocabulary/%E5%AF%BE%E3%81%99%E3%82%8B",
         "readings": [
-            "たいする",
-        ],
+            "たいする"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "反対",
+        "url": "https://www.wanikani.com/vocabulary/%E5%8F%8D%E5%AF%BE",
         "readings": [
-            "はんたい",
-        ],
+            "はんたい"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "局",
+        "url": "https://www.wanikani.com/vocabulary/%E5%B1%80",
         "readings": [
-            "きょく",
-        ],
+            "きょく"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "支局",
+        "url": "https://www.wanikani.com/vocabulary/%E6%94%AF%E5%B1%80",
         "readings": [
-            "しきょく",
-        ],
+            "しきょく"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "役",
+        "url": "https://www.wanikani.com/vocabulary/%E5%BD%B9",
         "readings": [
-            "やく",
-        ],
+            "やく"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "役人",
+        "url": "https://www.wanikani.com/vocabulary/%E5%BD%B9%E4%BA%BA",
         "readings": [
-            "やくにん",
-        ],
+            "やくにん"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "役に立つ",
+        "url": "https://www.wanikani.com/vocabulary/%E5%BD%B9%E3%81%AB%E7%AB%8B%E3%81%A4",
         "readings": [
-            "やくにたつ",
-        ],
+            "やくにたつ"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "大役",
+        "url": "https://www.wanikani.com/vocabulary/%E5%A4%A7%E5%BD%B9",
         "readings": [
-            "たいやく",
-        ],
+            "たいやく"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "研究",
+        "url": "https://www.wanikani.com/vocabulary/%E7%A0%94%E7%A9%B6",
         "readings": [
-            "けんきゅう",
-        ],
+            "けんきゅう"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "投げる",
+        "url": "https://www.wanikani.com/vocabulary/%E6%8A%95%E3%81%92%E3%82%8B",
         "readings": [
-            "なげる",
-        ],
+            "なげる"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "心身",
+        "url": "https://www.wanikani.com/vocabulary/%E5%BF%83%E8%BA%AB",
         "readings": [
-            "しんしん",
-        ],
+            "しんしん"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "身体",
+        "url": "https://www.wanikani.com/vocabulary/%E8%BA%AB%E4%BD%93",
         "readings": [
             "しんたい",
-            "からだ",
-        ],
+            "からだ"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "全身",
+        "url": "https://www.wanikani.com/vocabulary/%E5%85%A8%E8%BA%AB",
         "readings": [
-            "ぜんしん",
-        ],
+            "ぜんしん"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "森",
+        "url": "https://www.wanikani.com/vocabulary/%E6%A3%AE",
         "readings": [
-            "もり",
-        ],
+            "もり"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "両者",
+        "url": "https://www.wanikani.com/vocabulary/%E4%B8%A1%E8%80%85",
         "readings": [
-            "りょうしゃ",
-        ],
+            "りょうしゃ"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "作者",
+        "url": "https://www.wanikani.com/vocabulary/%E4%BD%9C%E8%80%85",
         "readings": [
-            "さくしゃ",
-        ],
+            "さくしゃ"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "学者",
+        "url": "https://www.wanikani.com/vocabulary/%E5%AD%A6%E8%80%85",
         "readings": [
-            "がくしゃ",
-        ],
+            "がくしゃ"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "工学者",
+        "url": "https://www.wanikani.com/vocabulary/%E5%B7%A5%E5%AD%A6%E8%80%85",
         "readings": [
-            "こうがくしゃ",
-        ],
+            "こうがくしゃ"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "場所",
+        "url": "https://www.wanikani.com/vocabulary/%E5%A0%B4%E6%89%80",
         "readings": [
-            "ばしょ",
-        ],
+            "ばしょ"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "入場",
+        "url": "https://www.wanikani.com/vocabulary/%E5%85%A5%E5%A0%B4",
         "readings": [
-            "にゅうじょう",
-        ],
+            "にゅうじょう"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "工場",
+        "url": "https://www.wanikani.com/vocabulary/%E5%B7%A5%E5%A0%B4",
         "readings": [
             "こうじょう",
-            "こうば",
-        ],
+            "こうば"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "所",
+        "url": "https://www.wanikani.com/vocabulary/%E6%89%80",
         "readings": [
-            "ところ",
-        ],
+            "ところ"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "他所",
+        "url": "https://www.wanikani.com/vocabulary/%E4%BB%96%E6%89%80",
         "readings": [
-            "よそ",
-        ],
+            "よそ"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "名所",
+        "url": "https://www.wanikani.com/vocabulary/%E5%90%8D%E6%89%80",
         "readings": [
-            "めいしょ",
-        ],
+            "めいしょ"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "住所",
+        "url": "https://www.wanikani.com/vocabulary/%E4%BD%8F%E6%89%80",
         "readings": [
-            "じゅうしょ",
-        ],
+            "じゅうしょ"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "朝",
+        "url": "https://www.wanikani.com/vocabulary/%E6%9C%9D",
         "readings": [
-            "あさ",
-        ],
+            "あさ"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "朝ごはん",
+        "url": "https://www.wanikani.com/vocabulary/%E6%9C%9D%E3%81%94%E3%81%AF%E3%82%93",
         "readings": [
-            "あさごはん",
-        ],
+            "あさごはん"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "朝日",
+        "url": "https://www.wanikani.com/vocabulary/%E6%9C%9D%E6%97%A5",
         "readings": [
-            "あさひ",
-        ],
+            "あさひ"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "番号",
+        "url": "https://www.wanikani.com/vocabulary/%E7%95%AA%E5%8F%B7",
         "readings": [
-            "ばんごう",
-        ],
+            "ばんごう"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "一番",
+        "url": "https://www.wanikani.com/vocabulary/%E4%B8%80%E7%95%AA",
         "readings": [
-            "いちばん",
-        ],
+            "いちばん"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "二番",
+        "url": "https://www.wanikani.com/vocabulary/%E4%BA%8C%E7%95%AA",
         "readings": [
-            "にばん",
-        ],
+            "にばん"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "交番",
+        "url": "https://www.wanikani.com/vocabulary/%E4%BA%A4%E7%95%AA",
         "readings": [
-            "こうばん",
-        ],
+            "こうばん"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "答え",
+        "url": "https://www.wanikani.com/vocabulary/%E7%AD%94%E3%81%88",
         "readings": [
-            "こたえ",
-        ],
+            "こたえ"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "答える",
+        "url": "https://www.wanikani.com/vocabulary/%E7%AD%94%E3%81%88%E3%82%8B",
         "readings": [
-            "こたえる",
-        ],
+            "こたえる"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "絵",
+        "url": "https://www.wanikani.com/vocabulary/%E7%B5%B5",
         "readings": [
-            "え",
-        ],
+            "え"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "買う",
+        "url": "https://www.wanikani.com/vocabulary/%E8%B2%B7%E3%81%86",
         "readings": [
-            "かう",
-        ],
+            "かう"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "道",
+        "url": "https://www.wanikani.com/vocabulary/%E9%81%93",
         "readings": [
-            "みち",
-        ],
+            "みち"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "歩道",
+        "url": "https://www.wanikani.com/vocabulary/%E6%AD%A9%E9%81%93",
         "readings": [
-            "ほどう",
-        ],
+            "ほどう"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "〜道",
+        "url": "https://www.wanikani.com/vocabulary/%E3%80%9C%E9%81%93",
         "readings": [
-            "どう",
-        ],
+            "どう"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "間",
+        "url": "https://www.wanikani.com/vocabulary/%E9%96%93",
         "readings": [
             "あいだ",
-            "ま",
-        ],
+            "ま"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "時間",
+        "url": "https://www.wanikani.com/vocabulary/%E6%99%82%E9%96%93",
         "readings": [
-            "じかん",
-        ],
+            "じかん"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "〜間",
+        "url": "https://www.wanikani.com/vocabulary/%E3%80%9C%E9%96%93",
         "readings": [
-            "かん",
-        ],
+            "かん"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "人間",
+        "url": "https://www.wanikani.com/vocabulary/%E4%BA%BA%E9%96%93",
         "readings": [
-            "にんげん",
-        ],
+            "にんげん"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "間もなく",
+        "url": "https://www.wanikani.com/vocabulary/%E9%96%93%E3%82%82%E3%81%AA%E3%81%8F",
         "readings": [
-            "まもなく",
-        ],
+            "まもなく"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "空間",
+        "url": "https://www.wanikani.com/vocabulary/%E7%A9%BA%E9%96%93",
         "readings": [
-            "くうかん",
-        ],
+            "くうかん"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "雲",
+        "url": "https://www.wanikani.com/vocabulary/%E9%9B%B2",
         "readings": [
-            "くも",
-        ],
+            "くも"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "数える",
+        "url": "https://www.wanikani.com/vocabulary/%E6%95%B0%E3%81%88%E3%82%8B",
         "readings": [
-            "かぞえる",
-        ],
+            "かぞえる"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "数",
+        "url": "https://www.wanikani.com/vocabulary/%E6%95%B0",
         "readings": [
-            "かず",
-        ],
+            "かず"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "数字",
+        "url": "https://www.wanikani.com/vocabulary/%E6%95%B0%E5%AD%97",
         "readings": [
-            "すうじ",
-        ],
+            "すうじ"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "数学",
+        "url": "https://www.wanikani.com/vocabulary/%E6%95%B0%E5%AD%A6",
         "readings": [
-            "すうがく",
-        ],
+            "すうがく"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "人数",
+        "url": "https://www.wanikani.com/vocabulary/%E4%BA%BA%E6%95%B0",
         "readings": [
-            "にんずう",
-        ],
+            "にんずう"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "点数",
+        "url": "https://www.wanikani.com/vocabulary/%E7%82%B9%E6%95%B0",
         "readings": [
-            "てんすう",
-        ],
+            "てんすう"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "楽しい",
+        "url": "https://www.wanikani.com/vocabulary/%E6%A5%BD%E3%81%97%E3%81%84",
         "readings": [
-            "たのしい",
-        ],
+            "たのしい"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "音楽",
+        "url": "https://www.wanikani.com/vocabulary/%E9%9F%B3%E6%A5%BD",
         "readings": [
-            "おんがく",
-        ],
+            "おんがく"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "楽",
+        "url": "https://www.wanikani.com/vocabulary/%E6%A5%BD",
         "readings": [
-            "らく",
-        ],
+            "らく"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "話す",
+        "url": "https://www.wanikani.com/vocabulary/%E8%A9%B1%E3%81%99",
         "readings": [
-            "はなす",
-        ],
+            "はなす"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "電話",
+        "url": "https://www.wanikani.com/vocabulary/%E9%9B%BB%E8%A9%B1",
         "readings": [
-            "でんわ",
-        ],
+            "でんわ"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "会話",
+        "url": "https://www.wanikani.com/vocabulary/%E4%BC%9A%E8%A9%B1",
         "readings": [
-            "かいわ",
-        ],
+            "かいわ"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "電車",
+        "url": "https://www.wanikani.com/vocabulary/%E9%9B%BB%E8%BB%8A",
         "readings": [
-            "でんしゃ",
-        ],
+            "でんしゃ"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "電気",
+        "url": "https://www.wanikani.com/vocabulary/%E9%9B%BB%E6%B0%97",
         "readings": [
-            "でんき",
-        ],
+            "でんき"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "電池",
+        "url": "https://www.wanikani.com/vocabulary/%E9%9B%BB%E6%B1%A0",
         "readings": [
-            "でんち",
-        ],
+            "でんち"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "電子",
+        "url": "https://www.wanikani.com/vocabulary/%E9%9B%BB%E5%AD%90",
         "readings": [
-            "でんし",
-        ],
+            "でんし"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "電力",
+        "url": "https://www.wanikani.com/vocabulary/%E9%9B%BB%E5%8A%9B",
         "readings": [
-            "でんりょく",
-        ],
+            "でんりょく"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "引き分け",
+        "url": "https://www.wanikani.com/vocabulary/%E5%BC%95%E3%81%8D%E5%88%86%E3%81%91",
         "readings": [
-            "ひきわけ",
-        ],
+            "ひきわけ"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "東京",
+        "url": "https://www.wanikani.com/vocabulary/%E6%9D%B1%E4%BA%AC",
         "readings": [
-            "とうきょう",
-        ],
+            "とうきょう"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "向こう",
+        "url": "https://www.wanikani.com/vocabulary/%E5%90%91%E3%81%93%E3%81%86",
         "readings": [
-            "むこう",
-        ],
+            "むこう"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "全米",
+        "url": "https://www.wanikani.com/vocabulary/%E5%85%A8%E7%B1%B3",
         "readings": [
-            "ぜんべい",
-        ],
+            "ぜんべい"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "思い出",
+        "url": "https://www.wanikani.com/vocabulary/%E6%80%9D%E3%81%84%E5%87%BA",
         "readings": [
-            "おもいで",
-        ],
+            "おもいで"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "近づく",
+        "url": "https://www.wanikani.com/vocabulary/%E8%BF%91%E3%81%A5%E3%81%8F",
         "readings": [
-            "ちかづく",
-        ],
+            "ちかづく"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "思い出す",
+        "url": "https://www.wanikani.com/vocabulary/%E6%80%9D%E3%81%84%E5%87%BA%E3%81%99",
         "readings": [
-            "おもいだす",
-        ],
+            "おもいだす"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "代わり",
+        "url": "https://www.wanikani.com/vocabulary/%E4%BB%A3%E3%82%8F%E3%82%8A",
         "readings": [
-            "かわり",
-        ],
+            "かわり"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "全く",
+        "url": "https://www.wanikani.com/vocabulary/%E5%85%A8%E3%81%8F",
         "readings": [
-            "まったく",
-        ],
+            "まったく"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "長さ",
+        "url": "https://www.wanikani.com/vocabulary/%E9%95%B7%E3%81%95",
         "readings": [
-            "ながさ",
-        ],
+            "ながさ"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "この前",
+        "url": "https://www.wanikani.com/vocabulary/%E3%81%93%E3%81%AE%E5%89%8D",
         "readings": [
-            "このまえ",
-        ],
+            "このまえ"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "お知らせ",
+        "url": "https://www.wanikani.com/vocabulary/%E3%81%8A%E7%9F%A5%E3%82%89%E3%81%9B",
         "readings": [
-            "おしらせ",
-        ],
+            "おしらせ"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "名前",
+        "url": "https://www.wanikani.com/vocabulary/%E5%90%8D%E5%89%8D",
         "readings": [
-            "なまえ",
-        ],
+            "なまえ"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "出来上がる",
+        "url": "https://www.wanikani.com/vocabulary/%E5%87%BA%E6%9D%A5%E4%B8%8A%E3%81%8C%E3%82%8B",
         "readings": [
-            "できあがる",
-        ],
+            "できあがる"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "曲げる",
+        "url": "https://www.wanikani.com/vocabulary/%E6%9B%B2%E3%81%92%E3%82%8B",
         "readings": [
-            "まげる",
-        ],
+            "まげる"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "交じる",
+        "url": "https://www.wanikani.com/vocabulary/%E4%BA%A4%E3%81%98%E3%82%8B",
         "readings": [
-            "まじる",
-        ],
+            "まじる"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "走り回る",
+        "url": "https://www.wanikani.com/vocabulary/%E8%B5%B0%E3%82%8A%E5%9B%9E%E3%82%8B",
         "readings": [
-            "はしりまわる",
-        ],
+            "はしりまわる"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "当てる",
+        "url": "https://www.wanikani.com/vocabulary/%E5%BD%93%E3%81%A6%E3%82%8B",
         "readings": [
-            "あてる",
-        ],
+            "あてる"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "化ける",
+        "url": "https://www.wanikani.com/vocabulary/%E5%8C%96%E3%81%91%E3%82%8B",
         "readings": [
-            "ばける",
-        ],
+            "ばける"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "回す",
+        "url": "https://www.wanikani.com/vocabulary/%E5%9B%9E%E3%81%99",
         "readings": [
-            "まわす",
-        ],
+            "まわす"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "私自身",
+        "url": "https://www.wanikani.com/vocabulary/%E7%A7%81%E8%87%AA%E8%BA%AB",
         "readings": [
             "わたしじしん",
-            "わたくしじしん",
-        ],
+            "わたくしじしん"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "私立大学",
+        "url": "https://www.wanikani.com/vocabulary/%E7%A7%81%E7%AB%8B%E5%A4%A7%E5%AD%A6",
         "readings": [
-            "しりつだいがく",
-        ],
+            "しりつだいがく"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "前回",
+        "url": "https://www.wanikani.com/vocabulary/%E5%89%8D%E5%9B%9E",
         "readings": [
-            "ぜんかい",
-        ],
+            "ぜんかい"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "身",
+        "url": "https://www.wanikani.com/vocabulary/%E8%BA%AB",
         "readings": [
-            "み",
-        ],
+            "み"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "地上",
+        "url": "https://www.wanikani.com/vocabulary/%E5%9C%B0%E4%B8%8A",
         "readings": [
-            "ちじょう",
-        ],
+            "ちじょう"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "向ける",
+        "url": "https://www.wanikani.com/vocabulary/%E5%90%91%E3%81%91%E3%82%8B",
         "readings": [
-            "むける",
-        ],
+            "むける"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "お前",
+        "url": "https://www.wanikani.com/vocabulary/%E3%81%8A%E5%89%8D",
         "readings": [
-            "おまえ",
-        ],
+            "おまえ"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "地中海",
+        "url": "https://www.wanikani.com/vocabulary/%E5%9C%B0%E4%B8%AD%E6%B5%B7",
         "readings": [
-            "ちちゅうかい",
-        ],
+            "ちちゅうかい"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "毎朝",
+        "url": "https://www.wanikani.com/vocabulary/%E6%AF%8E%E6%9C%9D",
         "readings": [
-            "まいあさ",
-        ],
+            "まいあさ"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "当たり前",
+        "url": "https://www.wanikani.com/vocabulary/%E5%BD%93%E3%81%9F%E3%82%8A%E5%89%8D",
         "readings": [
-            "あたりまえ",
-        ],
+            "あたりまえ"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "水道",
+        "url": "https://www.wanikani.com/vocabulary/%E6%B0%B4%E9%81%93",
         "readings": [
-            "すいどう",
-        ],
+            "すいどう"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "点ける",
+        "url": "https://www.wanikani.com/vocabulary/%E7%82%B9%E3%81%91%E3%82%8B",
         "readings": [
-            "つける",
-        ],
+            "つける"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "役目",
+        "url": "https://www.wanikani.com/vocabulary/%E5%BD%B9%E7%9B%AE",
         "readings": [
-            "やくめ",
-        ],
+            "やくめ"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "生地",
+        "url": "https://www.wanikani.com/vocabulary/%E7%94%9F%E5%9C%B0",
         "readings": [
-            "きじ",
-        ],
+            "きじ"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "番組",
+        "url": "https://www.wanikani.com/vocabulary/%E7%95%AA%E7%B5%84",
         "readings": [
-            "ばんぐみ",
-        ],
+            "ばんぐみ"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "科目",
+        "url": "https://www.wanikani.com/vocabulary/%E7%A7%91%E7%9B%AE",
         "readings": [
-            "かもく",
-        ],
+            "かもく"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "数年",
+        "url": "https://www.wanikani.com/vocabulary/%E6%95%B0%E5%B9%B4",
         "readings": [
-            "すうねん",
-        ],
+            "すうねん"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "絵文字",
+        "url": "https://www.wanikani.com/vocabulary/%E7%B5%B5%E6%96%87%E5%AD%97",
         "readings": [
-            "えもじ",
-        ],
+            "えもじ"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "投手",
+        "url": "https://www.wanikani.com/vocabulary/%E6%8A%95%E6%89%8B",
         "readings": [
-            "とうしゅ",
-        ],
+            "とうしゅ"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "対決",
+        "url": "https://www.wanikani.com/vocabulary/%E5%AF%BE%E6%B1%BA",
         "readings": [
-            "たいけつ",
-        ],
+            "たいけつ"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "南アフリカ",
+        "url": "https://www.wanikani.com/vocabulary/%E5%8D%97%E3%82%A2%E3%83%95%E3%83%AA%E3%82%AB",
         "readings": [
             "みなみあふりか",
-            "みなみアフリカ",
-        ],
+            "みなみアフリカ"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "北風",
+        "url": "https://www.wanikani.com/vocabulary/%E5%8C%97%E9%A2%A8",
         "readings": [
-            "きたかぜ",
-        ],
+            "きたかぜ"
+        ]
     },
     {
+        "type": "vocabulary",
         "kanji": "夜明け",
+        "url": "https://www.wanikani.com/vocabulary/%E5%A4%9C%E6%98%8E%E3%81%91",
         "readings": [
-            "よあけ",
-        ],
-    },
-];
+            "よあけ"
+        ]
+    }
+]

@@ -17,7 +17,7 @@ import { useAudio } from "~/providers/audio-provider";
 export const FPS = 60;
 export const RedrawDelayMs = 1 / FPS * 1000;
 
-export default function BalloonsGraph() {
+export function BalloonsGraph() {
     // Difficulty varies from 1 to 10, 1 being the easiest
     const { difficulty, isGamePaused } = useGameControls();
     const { completeKanas } = useKanaInput();
@@ -44,13 +44,13 @@ export default function BalloonsGraph() {
     }, [completeKanas]);
 
     // If the user doesn't remember the reading of a kanji, clicking on the balloon reveals the answers.
-    const onBalloonClicked = (balloon: Balloon) => {
-        setBalloons(bb => {
-            balloon.kanji = balloon.readings.join(", ")
-            // Returning a different array triggers re-rendering
-            return [...bb];
-        })
-
+    const onBalloonClicked = (clickedBalloon: Balloon) => {
+        setBalloons(currBalloons => {
+            return currBalloons.map(someBalloon =>
+                someBalloon === clickedBalloon
+                    ? { ...clickedBalloon, revealAnswer: !clickedBalloon.revealAnswer }
+                    : someBalloon);
+        });
     };
 
     // Creates a new balloon only if there are none left
@@ -97,14 +97,17 @@ export default function BalloonsGraph() {
                        x={ balloon.x }
                        y={ balloon.y }
                        filter={ `url(#shadow-${ balloon.z })` }
-                       onClick={ () => onBalloonClicked(balloon) }/>
-                <text x={ balloon.x + BalloonWidth / 2 }
-                      y={ balloon.y }
-                      dy={ -10 }
-                      textAnchor={ "middle" }
-                      filter={ `url(#shadow-${ balloon.z })` }>
-                    { balloon.kanji }
-                </text>
+                       onClick={ () => onBalloonClicked(balloon) }
+                       style={ { cursor: "pointer" } }/>
+                <a href={ balloon.url } target="_blank" rel="noreferrer">
+                    <text x={ balloon.x + BalloonWidth / 2 }
+                          y={ balloon.y }
+                          dy={ -10 }
+                          textAnchor={ "middle" }
+                          filter={ `url(#shadow-${ balloon.z })` }>
+                        { balloon.revealAnswer ? balloon.joinedReadings : balloon.kanji }
+                    </text>
+                </a>
             </React.Fragment>
         );
     });

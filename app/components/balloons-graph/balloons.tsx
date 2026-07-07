@@ -18,8 +18,13 @@ const BalloonImageUrls = [
 
 export interface Balloon {
     imgSrc: string;
-    kanji: string; // text visible in screen
+    kanji: string; // text visible on the screen
     readings: string[]; // text that the user needs to write
+    joinedReadings: string; // same as above but joined as a single string
+    revealAnswer?: boolean; // if the user doesn't know an answer, clicking on the balloon reveals it
+    url: string;
+    type: "vocabulary" | "kanji";
+
     x: number; // position calculated on each frame
     y: number; // position calculated on each frame
     z: number; // sense of depth given by shadow distance
@@ -68,6 +73,10 @@ const createNewBalloon = (vocabulary: KanjiWithReadings[]): Balloon => {
         imgSrc: BalloonImageUrls[randomImgIdx],
         kanji: randomVocabulary.kanji,
         readings: randomVocabulary.readings,
+        joinedReadings: randomVocabulary.readings.join(", "),
+        url: randomVocabulary.url,
+        type: randomVocabulary.type,
+
         x: Math.random() * (SvgWidth - BalloonWidth),
         y: SvgHeight,
         z: Math.floor(Math.random() * 3 + 1), // Corresponds to the index of one of the shadow filters

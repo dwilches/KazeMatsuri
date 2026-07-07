@@ -12,21 +12,36 @@ import { WanikaniLevel3 } from "~/providers/vocabulary-provider/wanikani-level-3
 export interface KanjiWithReadings {
     kanji: string;
     readings: string[];
+    url: string;
+    type: "vocabulary" | "kanji";
 }
 
 // Default vocabulary for every level, the name of the game :)
 const DefaultVocabulary: KanjiWithReadings[] = [
-    { kanji: "風", readings: ["かぜ", "ふう"] },
-    { kanji: "祭り", readings: ["まつり"] },
+    {
+        kanji: "風",
+        readings: ["かぜ", "ふう"],
+        url: "https://www.wanikani.com/vocabulary/%E9%A2%A8",
+        type: "vocabulary",
+    },
+    {
+        kanji: "祭り",
+        readings: ["まつり"],
+        url: "https://www.wanikani.com/vocabulary/%E7%A5%AD%E3%82%8A",
+        type: "vocabulary",
+    },
 ];
 
 /*
-  The content of each of the level files was produced with the script:
-
-  curl "https://api.wanikani.com/v2/subjects?levels=$WANIKANI_LEVEL&types=kanji,vocabulary" \
-     -H "Authorization: Bearer $WANIKANI_TOKEN" | \
-     jq '.data | map(.data | ({kanji: .slug, readings: .readings | map(.reading)}))'
-
+ * The content of each of the level files was produced with the script:
+ *
+ * for WANIKANI_LEVEL in {1..10}; do
+ *   echo "export const WanikaniLevel$WANIKANI_LEVEL = " > app/providers/vocabulary-provider/wanikani-level-$WANIKANI_LEVEL.tsx
+ *   curl "https://api.wanikani.com/v2/subjects?levels=$WANIKANI_LEVEL&types=kanji,vocabulary" \
+ *      -H "Authorization: Bearer $WANIKANI_TOKEN" | \
+ *      jq --indent 4 '.data | map(({type: .object, kanji: .data.slug, url: .data.document_url, readings: .data.readings | map(.reading)}))' \
+ *      >> app/providers/vocabulary-provider/wanikani-level-$WANIKANI_LEVEL.tsx
+ * done
 */
 const WanikaniLevels: Record<number, KanjiWithReadings[]> = {
     1: WanikaniLevel1,
