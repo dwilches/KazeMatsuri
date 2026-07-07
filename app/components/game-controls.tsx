@@ -1,20 +1,11 @@
 import { useAudio } from "~/providers/audio-provider";
 import React from "react";
 import { useGameControls } from "~/providers/game-controls-provider";
+import { ConfigSlider } from "~/components/config-slider/config-slider";
 
 export default function GameControls() {
     const { bgMusicVolume, setBgMusicVolume } = useAudio();
     const { isGamePaused, toggleGamePaused, difficulty, setDifficulty } = useGameControls();
-
-    const handleVolumeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const newVolume = parseInt(event.target.value) / 100;
-        setBgMusicVolume(newVolume);
-    };
-
-    const handleDifficultyChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const newDifficulty = parseInt(event.target.value);
-        setDifficulty(newDifficulty);
-    };
 
     const playIcon = isGamePaused ? "images/playing-button.png" : "images/paused-button.png";
 
@@ -41,27 +32,13 @@ export default function GameControls() {
         return "images/difficulty-3.svg";
     };
 
-    // Adds an animation to the sliders thumb, making the thumb larger as the volume/difficulty increases
-    const valueToSliderHeight = (value: number): string => {
-        // value -> [0, 1]
-        // height -> [0.8, 1.2]
-        const height = value * (1.2 - 0.8) + 0.8;
-        return `${ height }rem`;
-    };
-
     return (
         <div className={ "game-controls" }>
-            <div className={ "volume-container" }>
-                <img id="volume-icon"
-                     src={ speakerIcon() }
-                     alt=""/>
-                <input type="range"
-                       min={ 0 } max={ 100 } value={ bgMusicVolume * 100 }
-                       style={ {
-                           "--slider-thumb-height": valueToSliderHeight(bgMusicVolume),
-                       } as React.CSSProperties }
-                       onChange={ handleVolumeChange }/>
-            </div>
+            <ConfigSlider iconSrc={ speakerIcon() }
+                          initialValue={ bgMusicVolume * 100 }
+                          minValue={ 0 }
+                          maxValue={ 100 }
+                          onChange={ value => setBgMusicVolume(value / 100) }/>
 
             <img src={ playIcon }
                  width={ 48 } height={ 48 }
@@ -69,18 +46,11 @@ export default function GameControls() {
                  onClick={ toggleGamePaused }
                  alt=""/>
 
-            <div className={ "difficulty-container" }>
-                <img id="difficulty-icon"
-                     src={ balloonsIcon() }
-                     width={ 48 } height={ 48 }
-                     alt=""/>
-                <input type="range"
-                       min={ 1 } max={ 10 } value={ difficulty }
-                       style={ {
-                           "--slider-thumb-height": valueToSliderHeight(difficulty / 10),
-                       } as React.CSSProperties }
-                       onChange={ handleDifficultyChange }/>
-            </div>
+            <ConfigSlider iconSrc={ balloonsIcon() }
+                          initialValue={ difficulty }
+                          minValue={ 1 }
+                          maxValue={ 10 }
+                          onChange={ value => setDifficulty(value) }/>
         </div>
     );
 }

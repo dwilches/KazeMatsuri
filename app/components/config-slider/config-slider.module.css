@@ -1,0 +1,68 @@
+
+:root {
+    --slider-thumb-height: 1rem;
+}
+
+.configSlider {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+}
+
+
+@utility custom-slider-track {
+    background: #ff6097;
+    box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.5);
+    border: 1px solid white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+
+@utility custom-slider-thumb {
+    /* Remove default slider style */
+    -webkit-appearance: none;
+    appearance: none;
+
+    background: #ff9a44;
+    border: 3px solid white;
+    height: var(--slider-thumb-height);
+    border-radius: 20px;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.4), 0 0 3px rgba(0, 0, 0, 0.2) inset;
+    cursor: pointer;
+}
+
+
+input[type=range] {
+    /* Remove default slider style */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    min-width: 50px;
+
+    &:focus {
+        /* Remove default slider style */
+        outline: none;
+    }
+
+    &::-webkit-slider-runnable-track {
+        @apply custom-slider-track;
+        height: 8px;
+    }
+
+    &::-moz-range-track {
+        @apply custom-slider-track;
+    }
+
+    &::-webkit-slider-thumb {
+        @apply custom-slider-thumb;
+        width: 24px;
+        margin-top: calc(var(--slider-thumb-height) / -3);
+    }
+
+    &::-moz-range-thumb {
+        @apply custom-slider-thumb;
+    }
+}

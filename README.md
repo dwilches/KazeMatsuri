@@ -2,7 +2,7 @@
 
 Wind Festival (風祭り) - A Kanji game I created for practicing React
 
-[![ci.yml](https://github.com/dwilches/KazeMatsuri/actions/workflows/ci.yml/badge.svg)](https://github.com/dwilches/KazeMatsuri/actions/workflows/ci.yml)
+[![CI/CD](https://github.com/dwilches/KazeMatsuri/actions/workflows/ci.yml/badge.svg)](https://github.com/dwilches/KazeMatsuri/actions/workflows/ci.yml)
 
 > [!TIP]
 > You can go [here](https://dwilches.github.io/KazeMatsuri/) to play this game from your browser. It's still a work in progress so please be kind.
