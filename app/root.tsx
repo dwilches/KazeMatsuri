@@ -26,7 +26,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 // Text shown while the game is loading
 export function HydrateFallback() {
     return (
-        <div className={ "flex  justify-center min-h-screen items-center" }>
+        <div className={ "flex justify-center min-h-screen items-center text-white" }>
             <p>Loading Game...</p>
         </div>
     );

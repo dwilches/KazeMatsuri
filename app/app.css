@@ -89,8 +89,7 @@ dialog {
 
     &::backdrop {
         background: url("/images/bg-square.png");
-        backdrop-filter: brightness(50%) blur(20px);
-        -webkit-backdrop-filter: brightness(50%) blur(5px);
+        @apply backdrop-brightness-50 backdrop-blur-xl
     }
 
     .close-button {
@@ -112,6 +111,7 @@ dialog {
 
 #settings-dialog {
     background: url("/images/bg-square.png");
+    color: white;
 
     &::backdrop {
         background: none;

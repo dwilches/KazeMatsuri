@@ -1,5 +1,5 @@
 import React from "react";
-import "./config-slider.module.css";
+import styles from "./config-slider.module.css";
 
 interface ConfigSliderProps {
     value: number;
@@ -14,14 +14,15 @@ export const ConfigSlider = (props: ConfigSliderProps) => {
         props.onChange(newValue);
     };
 
-    const styles = () => ({
+    const style = () => ({
         "--slider-thumb-height": valueToSliderHeight(props.value, props.minValue, props.maxValue),
     }) as React.CSSProperties;
 
     return (
         <input type="range"
+               className={ styles.inputSlider }
                min={ props.minValue } max={ props.maxValue } value={ props.value }
-               style={ styles() }
+               style={ style() }
                onChange={ handleSliderChange }/>
     );
 };

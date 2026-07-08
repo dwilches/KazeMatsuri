@@ -38,7 +38,6 @@ opportunity.
 To be completed in the next week:
 
 - Credits
-- Allow changing kanji levels
 - Allow playing on mobile! 
-  - The keyboard won't show there as there is no input field
+  - The keyboard works in Firefox mobile but doesn't work in Chrome
   - Make balloon size responsive as well
