@@ -6,18 +6,18 @@ import styles from "./settings-dialog.module.css";
 import { useVocabulary } from "~/providers/vocabulary-provider/vocabulary-provider";
 
 export const SettingsDialog = () => {
-    const { bgMusicVolume, setBgMusicVolume } = useAudio();
+    const { musicVolume, setMusicVolume } = useAudio();
     const { difficulty, setDifficulty } = useGameControls();
     const { level, setLevel } = useVocabulary();
 
     const speakerIcon = () => {
-        if (bgMusicVolume == 0) {
+        if (musicVolume == 0) {
             return "images/speaker-0.svg";
         }
-        if (bgMusicVolume <= 0.3) {
+        if (musicVolume <= 0.3) {
             return "images/speaker-1.svg";
         }
-        if (bgMusicVolume <= 0.7) {
+        if (musicVolume <= 0.7) {
             return "images/speaker-2.svg";
         }
         return "images/speaker-3.svg";
@@ -45,10 +45,10 @@ export const SettingsDialog = () => {
             <p>Volume</p>
             <div className={ styles.configSlider }>
                 <img src={ speakerIcon() } width={ 48 } height={ 48 } alt=""/>
-                <ConfigSlider value={ bgMusicVolume * 100 }
+                <ConfigSlider value={ musicVolume * 100 }
                               minValue={ 0 }
                               maxValue={ 100 }
-                              onChange={ value => setBgMusicVolume(value / 100) }/>
+                              onChange={ value => setMusicVolume(value / 100) }/>
             </div>
 
             <p>Difficulty</p>

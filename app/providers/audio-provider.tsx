@@ -4,8 +4,8 @@ interface AudioContextType {
     playBgMusic: () => void;
     pauseBgMusic: () => void;
 
-    bgMusicVolume: number;
-    setBgMusicVolume: (volume: number) => void;
+    musicVolume: number;
+    setMusicVolume: (volume: number) => void;
 
     playBalloonPopSound: () => void;
 }
@@ -17,16 +17,14 @@ export const AudioProvider = ({ children }: { children: React.ReactNode }) => {
     const bgAudioRef = useRef<HTMLAudioElement>(null);
     const popAudioRef = useRef<HTMLAudioElement>(null);
 
-    const [bgMusicVolume, setBgMusicVolume] = useState(0.5); // half volume by default
+    const [musicVolume, setMusicVolume] = useState(0.5); // half volume by default
 
     useEffect(() => {
-        if (!bgAudioRef.current) {
-            // Not having the DOM element is normal when starting the application
-            return;
+        // Not having the DOM element is normal when starting the application
+        if (bgAudioRef.current) {
+            bgAudioRef.current.volume = musicVolume;
         }
-
-        bgAudioRef.current.volume = bgMusicVolume;
-    }, [bgMusicVolume]);
+    }, [musicVolume]);
 
     const playBgMusic = () => {
         if (!bgAudioRef.current) {
@@ -53,6 +51,7 @@ export const AudioProvider = ({ children }: { children: React.ReactNode }) => {
         }
 
         const audioClone = popAudioRef.current.cloneNode(true) as HTMLAudioElement;
+        audioClone.volume = musicVolume;
         audioClone.play()
             .catch(error => console.error("Couldn't play pop sound:", error));
         audioClone.addEventListener("ended", () => audioClone.remove());
@@ -60,7 +59,7 @@ export const AudioProvider = ({ children }: { children: React.ReactNode }) => {
 
     const providerValues = {
         playBgMusic, pauseBgMusic,
-        bgMusicVolume, setBgMusicVolume,
+        musicVolume, setMusicVolume,
         playBalloonPopSound,
     };
 
