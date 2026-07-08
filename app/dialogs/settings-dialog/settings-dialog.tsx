@@ -34,38 +34,48 @@ export const SettingsDialog = () => {
     };
 
     const japaneseLevelIcon = () => {
-        return "images/level";
+        return "images/japanese-level.svg";
     };
 
     return (
         <div className={ styles.settingsDialog + " flex justify-center flex-col" }>
             <h1>Settings</h1>
 
+
             <p>Volume</p>
-            <ConfigSlider iconSrc={ speakerIcon() }
-                          value={ bgMusicVolume * 100 }
-                          minValue={ 0 }
-                          maxValue={ 100 }
-                          onChange={ value => setBgMusicVolume(value / 100) }/>
+            <div className={ styles.configSlider }>
+                <img src={ speakerIcon() } width={ 48 } height={ 48 } alt=""/>
+                <ConfigSlider value={ bgMusicVolume * 100 }
+                              minValue={ 0 }
+                              maxValue={ 100 }
+                              onChange={ value => setBgMusicVolume(value / 100) }/>
+            </div>
 
             <p>Difficulty</p>
-            <ConfigSlider iconSrc={ balloonsIcon() }
-                          value={ difficulty }
-                          minValue={ 1 }
-                          maxValue={ 10 }
-                          onChange={ value => setDifficulty(value) }/>
+            <div className={ styles.configSlider }>
+                <img src={ balloonsIcon() } width={ 48 } height={ 48 } alt=""/>
+                <ConfigSlider value={ difficulty }
+                              minValue={ 1 }
+                              maxValue={ 10 }
+                              onChange={ value => setDifficulty(value) }/>
+            </div>
 
             <p className={ "flex items-center gap-1" }>
                 Japanese Level
                 <a href={ "https://www.wanikani.com/level/" + level } target="_blank" rel="noreferrer">
-                    <img src="images/info-icon.svg" width="24px" height="24px" title="Level details in Wanikani"/>
+                    <img src="images/info-icon.svg" width="20px" height="20px" title="Level details in WaniKani"/>
                 </a>
             </p>
-            <ConfigSlider iconSrc={ japaneseLevelIcon() }
-                          value={ level }
-                          minValue={ 1 }
-                          maxValue={ 10 }
-                          onChange={ value => setLevel(value) }/>
+            <div className={ styles.configSlider }>
+                <span className={ styles.japaneseLevelIconContainer }>
+                    <span>{ level }</span>
+                    <img src={ japaneseLevelIcon() } width={ 48 } height={ 48 } alt=""/>
+                </span>
+                <ConfigSlider value={ level }
+                              minValue={ 1 }
+                              maxValue={ 10 }
+                              onChange={ value => setLevel(value) }/>
+            </div>
 
             <p className={ "flex justify-center" }>
                 <button autoFocus type="submit"

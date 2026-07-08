@@ -3,14 +3,6 @@
     --slider-thumb-height: 1rem;
 }
 
-.configSlider {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 5px;
-}
-
-
 @utility custom-slider-track {
     background: #ff6097;
     box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.5);

@@ -44,7 +44,7 @@ export function GameControls() {
             <img src={ "images/settings-button.svg" }
                  width={ 48 } height={ 48 }
                  onClick={ () => handleOpenSettings() }
-                 alt="Settings"
+                 alt=""
                  title="Settings"/>
 
             {

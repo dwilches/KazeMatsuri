@@ -10,3 +10,27 @@
         margin-top: 20px;
     }
 }
+
+.configSlider {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.japaneseLevelIconContainer {
+    display: inline-block;
+    position: relative;
+    width: 48px;
+    height: 48px;
+
+    span, img {
+        position: absolute
+    }
+
+    span {
+        z-index: 1;
+        right: 0;
+        top: 1rem;
+    }
+}
