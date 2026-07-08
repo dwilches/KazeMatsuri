@@ -36,7 +36,7 @@ opportunity.
 > [!CAUTION]
 > This game is designed for devices with physical keyboards (such as PCs, laptops, and some mobile devices).
 >
-> Its gameplay is built around being able to watch the screen while typing, so it doesn't work
+> The gameplay is built around being able to watch the screen while typing, so it doesn't work
 > well with virtual keyboards where you need to constantly switch between the game and the keyboard.
 > As a result, the experience on most mobile devices is less enjoyable.
 >

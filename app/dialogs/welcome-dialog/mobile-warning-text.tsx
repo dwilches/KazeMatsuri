@@ -9,7 +9,7 @@ export const MobileWarningText = () => {
             This game is designed for devices with physical keyboards (such as PCs, laptops, and some mobile devices).
         </p>
         <p>
-            Its gameplay is built around being able to watch the screen while typing, so it doesn't work
+            The gameplay is built around being able to watch the screen while typing, so it doesn't work
             well with virtual keyboards.
         </p>
         <p className={ styles.altTextColor }>

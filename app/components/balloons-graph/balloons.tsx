@@ -6,15 +6,8 @@ import { type Confetti, createConfettiFromBalloon } from "~/components/balloons-
 // side. This probability tells how often that direction change happens.
 export const CrossWindChangeProbability = 0.01;
 
-const BalloonImageUrls = [
-    "images/blue-balloon.svg",
-    "images/green-balloon.svg",
-    "images/pink-balloon.svg",
-    "images/purple-balloon.svg",
-    "images/red-balloon.svg",
-    "images/turquesa-balloon.svg",
-    "images/yellow-balloon.svg",
-];
+// How many balloon varieties I have in the public/images folder (named like balloon-N.svg)
+const NumBalloonImages = 6;
 
 export interface Balloon {
     imgSrc: string;
@@ -72,10 +65,10 @@ export const insertNewBalloon = (balloons: Balloon[], vocabulary: KanjiWithReadi
  */
 
 const createNewBalloon = (vocabulary: KanjiWithReadings[]): Balloon => {
-    const randomImgIdx = Math.floor(Math.random() * BalloonImageUrls.length);
+    const randomImgIdx = Math.floor(Math.random() * NumBalloonImages);
     const randomVocabulary = vocabulary[Math.floor(Math.random() * vocabulary.length)];
     return {
-        imgSrc: BalloonImageUrls[randomImgIdx],
+        imgSrc: `images/balloon-${randomImgIdx}.svg`,
         kanji: randomVocabulary.kanji,
         readings: randomVocabulary.readings,
         joinedReadings: randomVocabulary.readings.join(", "),

@@ -42,7 +42,7 @@ export const SettingsDialog = () => {
             <h1>Settings</h1>
 
 
-            <p>Volume</p>
+            <p className={ styles.configType }>Volume</p>
             <div className={ styles.configSlider }>
                 <img src={ speakerIcon() } width={ 48 } height={ 48 } alt=""/>
                 <ConfigSlider value={ musicVolume * 100 }
@@ -51,7 +51,7 @@ export const SettingsDialog = () => {
                               onChange={ value => setMusicVolume(value / 100) }/>
             </div>
 
-            <p>Difficulty</p>
+            <p className={ styles.configType }>Difficulty</p>
             <div className={ styles.configSlider }>
                 <img src={ balloonsIcon() } width={ 48 } height={ 48 } alt=""/>
                 <ConfigSlider value={ difficulty }
@@ -60,7 +60,7 @@ export const SettingsDialog = () => {
                               onChange={ value => setDifficulty(value) }/>
             </div>
 
-            <p className={ "flex items-center gap-1" }>
+            <p className={ styles.configType + " flex items-center gap-1" }>
                 Japanese Level
                 <a href={ "https://www.wanikani.com/level/" + level } target="_blank" rel="noreferrer">
                     <img src="images/info-icon.svg" width="20px" height="20px" title="Level details in WaniKani"/>

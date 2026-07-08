@@ -9,6 +9,7 @@ import { VocabularyProvider } from "~/providers/vocabulary-provider/vocabulary-p
 import { WelcomeDialog } from "~/dialogs/welcome-dialog/welcome-dialog";
 import { ModalDialog } from "~/dialogs/modal-dialog";
 import { BalloonsGraph } from "~/components/balloons-graph/balloons-graph";
+import { GameFooter } from "~/components/game-footer";
 
 export function meta({}: Route.MetaArgs) {
     return [
@@ -41,11 +42,11 @@ export default function Home() {
                     <span style={ { color: "#58ecb3" } }>Matsuri</span>
                 </h1>
             </div>
-            <div className="main-content">
-                <AudioProvider>
-                    <VocabularyProvider>
-                        <KanaInputProvider>
-                            <GameControlsProvider>
+            <AudioProvider>
+                <VocabularyProvider>
+                    <KanaInputProvider>
+                        <GameControlsProvider>
+                            <div className="main-content">
                                 {
                                     !isWelcomeModalOpen &&
                                     <>
@@ -64,14 +65,12 @@ export default function Home() {
                                     </ModalDialog>
                                 }
 
-                            </GameControlsProvider>
-                        </KanaInputProvider>
-                    </VocabularyProvider>
-                </AudioProvider>
-            </div>
-            <div className="game-footer">
-                {/*Credits*/ }
-            </div>
+                            </div>
+                            <GameFooter/>
+                        </GameControlsProvider>
+                    </KanaInputProvider>
+                </VocabularyProvider>
+            </AudioProvider>
         </div>
     );
 }

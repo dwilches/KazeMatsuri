@@ -1,8 +1,9 @@
+@reference "tailwindcss";
 
 .settingsDialog {
     h1 {
+        @apply text-emerald-300;
         font-size: 1.25rem;
-        color: #58ecb3;
         align-self: center;
     }
 
@@ -33,4 +34,8 @@
         right: 0;
         top: 1rem;
     }
+}
+
+.configType {
+    color: white;
 }

@@ -1,0 +1,21 @@
+@reference "tailwindcss";
+
+.creditsDialog {
+    h1 {
+        @apply text-emerald-300;
+        font-size: 1.25rem;
+        align-self: center;
+    }
+}
+
+.creditsGroup {
+    margin-top: 20px;
+}
+
+.creditsType {
+    @apply text-amber-200;
+}
+
+.creditsLink {
+    @apply text-teal-200 underline;
+}
