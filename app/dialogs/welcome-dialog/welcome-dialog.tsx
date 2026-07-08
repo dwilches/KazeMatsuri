@@ -1,35 +1,57 @@
 import { useGameControls } from "~/providers/game-controls-provider";
-import React, { type RefObject } from "react";
+import React, { type RefObject, useState } from "react";
 
 import styles from "./welcome-dialog.module.css";
+import { useMobileDetection } from "~/providers/mobile-detection-provider";
+import { WelcomeText } from "~/dialogs/welcome-dialog/welcome-text";
+import { MobileWarningText } from "~/dialogs/welcome-dialog/mobile-warning-text";
 
 export const WelcomeDialog = ({ closeCallbackRef }: { closeCallbackRef: RefObject<() => void> }) => {
     const { startGame } = useGameControls();
+    const { isMobile } = useMobileDetection();
+
+    const [showMobileWarning, setShowMobileWarning] = useState(false);
 
     // Start the game when the modal closes
     closeCallbackRef.current = startGame;
 
     return (
         <div className={ styles.welcomeDialog + " flex justify-center flex-col" }>
-            <h1 className={ styles.altTextColor }>Hello 👋!</h1>
-            <p>This is a game I created to practice <a href="https://react.dev/" target="_blank">React</a> and to
-                help me remember kanji pronunciations.</p>
-            <p className={ styles.altTextColor }>Kanji are Japanese characters
-                like <span className={ styles.japaneseWord }>風</span>,
-                which can be read as <span className={ styles.japaneseWord }>かぜ</span> (kaze)
-                or <span className={ styles.japaneseWord }>ふう</span> (fū), depending on the word they're used in.</p>
-            <p>Remembering kanji pronunciations is difficult because many kanji have multiple readings.
-                I've wanted to create this game for a long time to help me remember them.</p>
-            <p className={ styles.altTextColor }>To play, pop the balloons before they reach the top of the
-                screen by typing the pronunciation of the kanji above each one.</p>
-            <p>If you don't remember the reading of a kanji, click or tap it to reveal the answer.</p>
-            <p className={ "flex justify-end" }>
-                <button autoFocus type="submit"
-                        className="close-button"
-                        commandfor="welcome-dialog" command="close">
-                    Let's go!
-                </button>
-            </p>
+            {
+                !showMobileWarning && <>
+                    <WelcomeText/>
+                    <p className={ "flex justify-end" }>
+                        {
+                            !isMobile &&
+                            <button autoFocus type="submit"
+                                    className="close-button"
+                                    commandfor="welcome-dialog" command="close">
+                                Let's go!
+                            </button>
+                        }
+                        {
+                            isMobile &&
+                            <button autoFocus type="submit"
+                                    className="close-button"
+                                    onClick={ () => setShowMobileWarning(true) }>
+                                Let's go!
+                            </button>
+                        }
+                    </p>
+                </>
+            }
+            {
+                showMobileWarning && <>
+                    <MobileWarningText/>
+                    <p className={ "flex justify-end" }>
+                        <button autoFocus type="submit"
+                                className="close-button"
+                                commandfor="welcome-dialog" command="close">
+                            I'll give it a try
+                        </button>
+                    </p>
+                </>
+            }
         </div>
     );
 };

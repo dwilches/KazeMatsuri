@@ -19,7 +19,7 @@ opportunity.
 
 
 > [!CAUTION]
-> This is a work in progress, less than 2 days of work so it's very rough around the edges, 
+> This is a work in progress, less than a week of work so it's very rough around the edges, 
 > come back in some days!
 
 
@@ -33,11 +33,12 @@ opportunity.
 <img src="docs/screenshot-settings.png" alt="Screenshot Game">
 
 
-# TODO
-
-To be completed in the next week:
-
-- Credits
-- Allow playing on mobile! 
-  - The keyboard works in Firefox mobile but doesn't work in Chrome
-  - Make balloon size responsive as well
+> [!CAUTION]
+> This game is designed for devices with physical keyboards (such as PCs, laptops, and some mobile devices).
+>
+> Its gameplay is built around being able to watch the screen while typing, so it doesn't work
+> well with virtual keyboards where you need to constantly switch between the game and the keyboard.
+> As a result, the experience on most mobile devices is less enjoyable.
+>
+> If the game detects that you're using a mobile device, it will display a warning.
+> You can still continue if your device has a physical keyboard, such as certain tablets.
