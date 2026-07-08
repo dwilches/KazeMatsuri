@@ -6,7 +6,8 @@ interface GameControlsType {
     setDifficulty: (difficulty: number) => void;
 
     isGamePaused: boolean;
-    toggleGamePaused: () => void;
+    setGamePaused: (pause: boolean) => void;
+
     startGame: () => void;
 }
 
@@ -18,10 +19,6 @@ export const GameControlsProvider = ({ children }: { children: React.ReactNode }
     const [difficulty, setDifficulty] = useState(1);
     const [isGamePaused, setGamePaused] = useState(true);
 
-    const toggleGamePaused = () => {
-        setGamePaused(!isGamePaused);
-    };
-
     const startGame = () => {
         playBgMusic();
         setGamePaused(false);
@@ -29,7 +26,7 @@ export const GameControlsProvider = ({ children }: { children: React.ReactNode }
 
     const contextValues = {
         difficulty, setDifficulty,
-        isGamePaused, toggleGamePaused,
+        isGamePaused, setGamePaused,
         startGame,
     };
 

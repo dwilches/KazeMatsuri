@@ -6,7 +6,7 @@ import { useAudio } from "~/providers/audio-provider";
 import styles from "./game-controls.module.css";
 
 export function GameControls() {
-    const { isGamePaused, toggleGamePaused } = useGameControls();
+    const { isGamePaused, setGamePaused } = useGameControls();
     const { playBgMusic, pauseBgMusic } = useAudio();
 
     const [isSettingsModalOpen, setSettingsModalOpen] = useState(false);
@@ -14,22 +14,24 @@ export function GameControls() {
     const playIcon = isGamePaused ? "images/playing-button.png" : "images/paused-button.png";
 
     const handleOpenSettings = () => {
-        toggleGamePaused();
+        setGamePaused(true);
         setSettingsModalOpen(true);
     };
 
     const handleCloseSettings = () => {
-        toggleGamePaused();
+        playBgMusic();
+        setGamePaused(false);
         setSettingsModalOpen(false);
     };
 
     const handleToggleGamePaused = () => {
         if (isGamePaused) {
             playBgMusic();
+            setGamePaused(false);
         } else {
             pauseBgMusic();
+            setGamePaused(true);
         }
-        toggleGamePaused();
     };
 
     return (

@@ -29,6 +29,9 @@ opportunity.
 ## In Game UI
 <img src="docs/screenshot-game.png" alt="Screenshot Game">
 
+## Settings Screen
+<img src="docs/screenshot-settings.png" alt="Screenshot Game">
+
 
 # TODO
 
