@@ -16,15 +16,7 @@ romanized On'yomi or Kun'yomi reading (that is, one of their pronunciations).
 
 I'd wanted to make a game like this for a while, and practicing React gave me the perfect opportunity to do it.
 
-## Intro Screen
-<img src="docs/screenshot-intro.png" alt="Screenshot Intro">
-
-## In Game UI
-<img src="docs/screenshot-game.png" alt="Screenshot Game">
-
-## Settings Screen
-<img src="docs/screenshot-settings.png" alt="Screenshot Game">
-
+[![KazeMatsuri](docs/youtube-image.png)](http://www.youtube.com/watch?v=MoHMleh8nyA "KazeMatsuri - 風祭り")
 
 > [!NOTE]
 > This game is designed for devices with physical keyboards (such as PCs, laptops, and some mobile devices).
