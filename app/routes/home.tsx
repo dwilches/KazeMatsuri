@@ -33,13 +33,13 @@ export default function Home() {
         <div className="flex items-center flex-col">
             <div className="main-title">
                 <h1>
-                    <span style={ { color: "#ff6097" } }>風</span>
-                    <span style={ { color: "#58ecb3" } }>祭</span>
-                    <span style={ { color: "#ff9a44" } }>り</span>
+                    <span className={ "text-rose-400" }>風</span>
+                    <span className={ "text-emerald-300" }>祭</span>
+                    <span className={ "text-orange-400" }>り</span>
                 </h1>
                 <h1>
-                    <span style={ { color: "#ffdd67" } }>Kaze</span>
-                    <span style={ { color: "#58ecb3" } }>Matsuri</span>
+                    <span className={ "text-amber-300" }>Kaze</span>
+                    <span className={ "text-emerald-300" }>Matsuri</span>
                 </h1>
             </div>
             <AudioProvider>

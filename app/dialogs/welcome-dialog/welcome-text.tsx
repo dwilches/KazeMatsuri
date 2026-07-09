@@ -4,7 +4,7 @@ import styles from "./welcome-dialog.module.css";
 
 export const WelcomeText = () => {
     return (<>
-        <h1 className={ styles.altTextColor }>Hello 👋!</h1>
+        <h1 className={ styles.altTextColor }>Hello <span className={ styles.noStrokeStyle }>👋</span>!</h1>
         <p>This is a game I created to practice <a href="https://react.dev/" target="_blank">React</a> and to
             help me remember kanji pronunciations.</p>
         <p className={ styles.altTextColor }>Kanji are Japanese characters

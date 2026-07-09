@@ -1,11 +1,8 @@
+@import "tailwindcss";
 
 .welcomeDialog {
     a {
-        color: #ffb376;
-
-        &:hover {
-            text-decoration: underline;
-        }
+        @apply text-orange-300 hover:underline;
     }
 
     p {
@@ -14,14 +11,18 @@
     }
 
     .altTextColor {
-        color: #fff0be;
+        @apply text-amber-100;
     }
 
     .japaneseWord {
-        color: #58ecb3;
+        @apply text-emerald-300;
 
         @supports (-moz-appearance: none) {
             font-weight: bold;
         }
+    }
+
+    .noStrokeStyle {
+        -webkit-text-stroke: unset;
     }
 }

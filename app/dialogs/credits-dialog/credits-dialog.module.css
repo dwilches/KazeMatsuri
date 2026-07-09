@@ -3,8 +3,9 @@
 .creditsDialog {
     h1 {
         @apply text-emerald-300;
-        font-size: 1.25rem;
         align-self: center;
+        font-size: 1.5rem;
+        -webkit-text-stroke: 2px rgba(0, 0, 0, 0.565);
     }
 }
 
@@ -18,4 +19,5 @@
 
 .creditsLink {
     @apply text-teal-200 underline;
+    text-decoration-color: var(--color-teal-200);
 }

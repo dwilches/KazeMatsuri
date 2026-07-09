@@ -7,8 +7,8 @@ export const KanaVisualizer = () => {
 
     return (
         <div className={ styles.kanaVisualizer }>
-            <span style={ { color: "#ff9a44" } }>{ partialKanas }</span>
-            <span style={ { color: "#ff6097" } }>{ unconsumedLetters }</span>
+            <span className={ "text-orange-400" }>{ partialKanas }</span>
+            <span className={ "text-rose-400" }>{ unconsumedLetters }</span>
         </div>
     );
 };
