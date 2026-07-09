@@ -1,27 +1,20 @@
 # KazeMatsuri
 
-Wind Festival (風祭り) - A Kanji game I created for practicing React
+Wind Festival (風祭り) - A Kanji game I created for learning Japanese and practicing React
 
 [![CI/CD](https://github.com/dwilches/KazeMatsuri/actions/workflows/ci.yml/badge.svg)](https://github.com/dwilches/KazeMatsuri/actions/workflows/ci.yml)
 
 > [!TIP]
-> You can go [here](https://dwilches.github.io/KazeMatsuri/) to play this game from your browser. It's still a work in progress so please be kind.
+> You can go [here](https://dwilches.github.io/KazeMatsuri/) to play this game from your browser.
 
 
-This game is inspired by a computer game I played as a child which taught me how to type fast. 
-The game had balloons with words inside and to pop them I had to quickly type the words written in them.
+This game is inspired by a computer game I played as a child that taught me how to type quickly.
+In that game, balloons containing words would float across the screen, and to pop them, I had to type the words as quickly as possible.
 
-For my version of the game, the words inside the balloons are Kanjis (Japanese characters) and you have to
-type their romanized On'yomi or Kun'yomi (i.e. their pronunciations) to pop them.
+In my version of the game, the balloons contain Kanji (Japanese characters), and to pop them, you must type their 
+romanized On'yomi or Kun'yomi reading (that is, one of their pronunciations).
 
-I'd wanted to make a game like this for some time, and now that I wanted to practice React, it was the perfect
-opportunity.
-
-
-> [!CAUTION]
-> This is a work in progress, less than a week of work so it's very rough around the edges, 
-> come back in some days!
-
+I'd wanted to make a game like this for a while, and practicing React gave me the perfect opportunity to do it.
 
 ## Intro Screen
 <img src="docs/screenshot-intro.png" alt="Screenshot Intro">
@@ -33,7 +26,7 @@ opportunity.
 <img src="docs/screenshot-settings.png" alt="Screenshot Game">
 
 
-> [!CAUTION]
+> [!NOTE]
 > This game is designed for devices with physical keyboards (such as PCs, laptops, and some mobile devices).
 >
 > The gameplay is built around being able to watch the screen while typing, so it doesn't work
